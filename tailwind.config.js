@@ -28,7 +28,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        heading: "'Poppins', sans-serif;",
+        heading: "'Poppins', sans-serif",
         body: "'Roboto', sans-serif"
       }
     }
