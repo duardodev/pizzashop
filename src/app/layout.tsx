@@ -1,9 +1,9 @@
 import './globals.css';
 
-import { Roboto } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const roboto = Roboto({
-  weight: ['400', '700'],
+const poppins = Poppins({
+  weight: ['400', '700', '800'],
   subsets: ['latin']
 });
 
@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en" className={poppins.className}>
       <body className="bg-backgroud text-text">{children}</body>
     </html>
   );

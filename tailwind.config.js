@@ -25,12 +25,6 @@ module.exports = {
       'red-light': '#FEE2E2',
       'red-border': '#FECACA',
       'orange-light': '#FFEDD5'
-    },
-    extend: {
-      fontFamily: {
-        heading: "'Poppins', sans-serif",
-        body: "'Roboto', sans-serif"
-      }
     }
   },
   plugins: []
