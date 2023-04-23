@@ -1,10 +1,7 @@
 import { Logo } from './Logo';
 import { MdShoppingCart } from 'react-icons/md';
 
-import Image from 'next/image';
 import Link from 'next/link';
-
-import ShoppingCartIcon from '../../public/icons/shopping-cart.svg';
 
 export function Header() {
   return (
