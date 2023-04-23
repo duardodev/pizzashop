@@ -1,4 +1,5 @@
 import { Logo } from './Logo';
+import { MdShoppingCart } from 'react-icons/md';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,7 +25,7 @@ export function Header() {
         </nav>
 
         <button className="h-38 w-38 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity">
-          <Image src={ShoppingCartIcon} alt="Ícone de carrinho de compras" />
+          <MdShoppingCart size={24} className="text-orange" />
         </button>
       </div>
     </header>
