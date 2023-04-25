@@ -1,6 +1,9 @@
 import { Header } from '@/components/Header';
 import { Divider } from '@/components/Divider';
 
+import { MdDeliveryDining, MdOutlineArrowDownward } from 'react-icons/md';
+import { BsCreditCard } from 'react-icons/bs';
+
 import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
 import PizzaMakerIllustration from '../../public/pizza-maker-illustration.svg';
 
@@ -12,12 +15,13 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="max-w-[1120px] my-20 mx-auto">
-          <div className="flex items-start justify-between">
-            <div className="max-w-[600px] flex flex-col items-start gap-7">
+        <section className="max-w-[1120px] mt-24 mb-[130px] mx-auto">
+          <div className="flex justify-between">
+            <div className="max-w-[600px] flex flex-col items-start gap-8">
               <div>
                 <h1 className="text-title mb-4 text-[42px] leading-tight font-extrabold">
-                  Saboreie a melhor pizza da região sem sair do conforto da sua casa!
+                  Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
+                  <span className="text-red">conforto</span> da sua casa!
                 </h1>
                 <p className="text-subtitle text-xl leading-tight">
                   Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora
@@ -25,12 +29,29 @@ export default function Home() {
                 </p>
               </div>
 
-              <button className="bg-red-dark text-white text-sm font-bold w-56 h-12 p-3 rounded-md flex items-center justify-center hover:bg-red transition-colors">
-                VER CARDÁPIO
+              <button className="bg-red-dark text-white text-sm font-bold w-60 h-[50px] p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red transition-colors">
+                <MdOutlineArrowDownward size={24} />
+                PEDIR AGORA
               </button>
+
+              <div className="flex gap-5">
+                <div className="flex items-center gap-2">
+                  <div className="h-10 w-10 bg-red-light p-2 rounded-xl flex items-center justify-center">
+                    <BsCreditCard size={20} className="text-red" />
+                  </div>
+                  <p className="text-subtitle text-lg">Compra fácil e segura</p>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="h-10 w-10 bg-red-light p-2 rounded-xl flex items-center justify-center">
+                    <MdDeliveryDining size={24} className="text-red" />
+                  </div>
+                  <p className="text-subtitle text-lg">Entrega rápida e eficiente</p>
+                </div>
+              </div>
             </div>
 
-            <Image src={DeliveryIllustration} alt="Ilustração de entrega" />
+            <Image src={DeliveryIllustration} height={420} alt="Ilustração de entrega" />
           </div>
         </section>
 
