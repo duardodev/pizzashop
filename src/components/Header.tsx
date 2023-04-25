@@ -21,7 +21,7 @@ export function Header() {
           </Link>
         </nav>
 
-        <button className="h-38 w-38 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity">
+        <button className="h-10 w-10 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center">
           <MdShoppingCart size={24} className="text-orange" />
         </button>
       </div>
