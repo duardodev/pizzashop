@@ -15,7 +15,7 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="max-w-[1120px] mt-24 mb-[130px] mx-auto">
+        <section className="max-w-[1120px] my-[116px] mx-auto">
           <div className="flex justify-between">
             <div className="max-w-[600px] flex flex-col items-start gap-8">
               <div>
@@ -34,7 +34,7 @@ export default function Home() {
                 PEDIR AGORA
               </button>
 
-              <div className="flex gap-5">
+              <div className="mt-1 flex gap-5">
                 <div className="flex items-center gap-2">
                   <div className="h-10 w-10 bg-red-light p-2 rounded-xl flex items-center justify-center">
                     <BsCreditCard size={20} className="text-red" />
