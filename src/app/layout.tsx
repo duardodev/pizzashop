@@ -1,6 +1,9 @@
-import './globals.css';
-
 import { Poppins } from 'next/font/google';
+
+import { ApolloProvider } from '@apollo/client';
+import { client } from '@/lib/apollo';
+
+import './globals.css';
 
 const poppins = Poppins({
   weight: ['400', '800'],
@@ -14,8 +17,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body className="bg-backgroud text-text">{children}</body>
-    </html>
+    <ApolloProvider client={client}>
+      <html lang="en" className={poppins.className}>
+        <body className="bg-backgroud text-text">{children}</body>
+      </html>
+    </ApolloProvider>
   );
 }
