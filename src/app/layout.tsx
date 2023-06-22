@@ -1,4 +1,6 @@
-import { Poppins } from 'next/font/google';
+'use client';
+
+import { Poppins, Roboto } from 'next/font/google';
 
 import { ApolloProvider } from '@apollo/client';
 import { client } from '@/lib/apollo';
@@ -7,7 +9,16 @@ import './globals.css';
 
 const poppins = Poppins({
   weight: ['400', '800'],
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  preload: true
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-roboto',
+  preload: true
 });
 
 export const metadata = {
@@ -19,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ApolloProvider client={client}>
       <html lang="en" className={poppins.className}>
-        <body className="bg-backgroud text-text">{children}</body>
+        <body className={`${poppins.variable} ${roboto.variable} font-sans bg-backgroud text-text`}>
+          {children}
+        </body>
       </html>
     </ApolloProvider>
   );
