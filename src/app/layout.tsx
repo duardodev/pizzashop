@@ -1,9 +1,5 @@
-'use client';
-
 import { Poppins, Roboto } from 'next/font/google';
-
-import { ApolloProvider } from '@apollo/client';
-import { client } from '@/lib/apollo';
+import { Header } from '@/components/Header';
 
 import './globals.css';
 
@@ -28,12 +24,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ApolloProvider client={client}>
-      <html lang="en" className={poppins.className}>
-        <body className={`${poppins.variable} ${roboto.variable} font-sans bg-backgroud text-text`}>
-          {children}
-        </body>
-      </html>
-    </ApolloProvider>
+    <html lang="en" className={poppins.className}>
+      <body className={`${poppins.variable} ${roboto.variable} font-sans bg-backgroud text-text`}>
+        <Header />
+
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }
