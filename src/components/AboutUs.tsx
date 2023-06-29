@@ -12,7 +12,7 @@ export function AboutUs() {
           <h1 className="text-title text-[42px] leading-tight font-extrabold">Sobre nós</h1>
 
           <div className="flex flex-col gap-4">
-            <p className="text-subtitle text-xl font-alt leading-tight">
+            <p className="text-text text-xl font-alt leading-tight">
               Bem-vindo ao{' '}
               <span className="font-bold">
                 <span className="text-red">Hot</span>Pizza
@@ -21,13 +21,13 @@ export function AboutUs() {
               na sua porta.
             </p>
 
-            <p className="text-subtitle text-xl font-alt leading-tight">
+            <p className="text-text text-xl font-alt leading-tight">
               Usamos ingredientes de qualidade e frescos para garantir que cada fatia seja
               deliciosa. Nossa missão é proporcionar uma experiência de pizza fácil e conveniente
               para você desfrutar no conforto da sua casa.
             </p>
 
-            <p className="text-subtitle text-xl font-alt leading-tight">
+            <p className="text-text text-xl font-alt leading-tight">
               Juntamente com uma variedade de sabores e opções de tamanho, assim temos a pizza
               perfeita para todas as ocasiões!
             </p>

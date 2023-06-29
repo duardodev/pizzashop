@@ -10,13 +10,13 @@ export function Header() {
         <Logo />
 
         <nav className="flex gap-8">
-          <Link href="" className="text-subtitle text-xl font-alt hover:text-red transition-colors">
+          <Link href="" className="text-title text-xl font-alt hover:text-red transition-colors">
             Início
           </Link>
-          <Link href="" className="text-subtitle text-xl font-alt hover:text-red transition-colors">
+          <Link href="" className="text-title text-xl font-alt hover:text-red transition-colors">
             Sobre
           </Link>
-          <Link href="" className="text-subtitle text-xl font-alt hover:text-red transition-colors">
+          <Link href="" className="text-title text-xl font-alt hover:text-red transition-colors">
             Cardápio
           </Link>
         </nav>

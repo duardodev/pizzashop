@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 import './globals.css';
 
 const poppins = Poppins({
-  weight: ['400', '800'],
+  weight: ['400', '500', '800'],
   subsets: ['latin'],
   variable: '--font-poppins',
   preload: true
@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   variable: '--font-roboto',
   preload: true
 });

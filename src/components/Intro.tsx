@@ -14,7 +14,7 @@ export function Intro() {
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
               <span className="text-red">conforto</span> da sua casa!
             </h1>
-            <p className="text-subtitle text-xl font-alt leading-tight">
+            <p className="text-text text-xl font-alt leading-tight">
               Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora e
               ainda quentinha!
             </p>
@@ -30,14 +30,16 @@ export function Intro() {
               <div className="h-10 w-10 bg-red-light p-2 rounded-xl flex items-center justify-center">
                 <BsCreditCard size={20} className="text-red" />
               </div>
-              <p className="text-subtitle text-lg font-alt">Compra fácil e segura</p>
+
+              <p className="text-text text-lg font-alt">Compra fácil e segura</p>
             </div>
 
             <div className="flex items-center gap-2">
               <div className="h-10 w-10 bg-red-light p-2 rounded-xl flex items-center justify-center">
                 <MdDeliveryDining size={24} className="text-red" />
               </div>
-              <p className="text-subtitle text-lg font-alt">Entrega rápida e eficiente</p>
+
+              <p className="text-text text-lg font-alt">Entrega rápida e eficiente</p>
             </div>
           </div>
         </div>

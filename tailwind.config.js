@@ -10,18 +10,20 @@ module.exports = {
       fontFamily: {
         sans: 'var(--font-poppins)',
         alt: 'var(--font-roboto)'
+      },
+      lineHeight: {
+        tight: 1.3
       }
     },
 
     colors: {
       white: '#FFFFFF',
       backgroud: '#FAFAFA',
-      card: '#F3F2F2',
+      card: '#F0F0F5',
       button: '#E2E8F0',
       label: '#8D8686',
       text: '#574F4D',
-      subtitle: '#403937',
-      title: '#272221',
+      title: '#403937',
 
       red: '#EF4444',
       orange: '#F97316',
@@ -34,5 +36,5 @@ module.exports = {
       'orange-light': '#FFEDD5'
     }
   },
-  plugins: []
+  plugins: [require('tailwindcss-radix')()]
 };
