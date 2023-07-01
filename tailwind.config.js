@@ -36,5 +36,5 @@ module.exports = {
       'orange-light': '#FFEDD5'
     }
   },
-  plugins: [require('tailwindcss-radix')()]
+  plugins: []
 };
