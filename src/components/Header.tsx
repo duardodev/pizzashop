@@ -10,7 +10,7 @@ export function Header() {
         <Logo />
 
         <div className="flex justify-center items-center gap-14">
-          <nav className="flex gap-8">
+          <nav className="flex gap-9">
             <Link href="/" className="text-title text-lg font-alt hover:text-red transition-colors">
               Início
             </Link>

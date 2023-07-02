@@ -4,21 +4,21 @@ import Image from 'next/image';
 
 export function AboutUs() {
   return (
-    <section className="max-w-[1120px] my-16 mx-auto">
+    <section className="max-w-[1120px] my-24 mx-auto">
       <div className="flex items-start justify-between">
         <Image src={PizzaMakerIllustration} alt="Ilustração de pizzaiolo" />
 
-        <div className="max-w-[580px] flex flex-col items-start gap-8">
-          <h1 className="text-title text-[42px] leading-tight font-extrabold">Sobre nós</h1>
+        <div className="max-w-[580px] flex flex-col items-start gap-7">
+          <h1 className="text-title text-[40px] leading-tight font-extrabold">Sobre nós</h1>
 
-          <div className="flex flex-col gap-4">
+          <div className="space-y-5">
             <p className="text-text text-xl font-alt leading-tight">
               Bem-vindo ao{' '}
               <span className="font-bold">
                 <span className="text-red">Hot</span>Pizza
               </span>
-              ! Aqui oferecemos as melhores pizzas de Salvador - BA e região, entregues diretamente
-              na sua porta.
+              ! Aqui você encontra as mais deliciosas pizzas de Salvador - BA e região, entregues
+              diretamente na sua porta.
             </p>
 
             <p className="text-text text-xl font-alt leading-tight">
@@ -28,8 +28,9 @@ export function AboutUs() {
             </p>
 
             <p className="text-text text-xl font-alt leading-tight">
-              Juntamente com uma variedade de sabores e opções de tamanho, assim temos a pizza
-              perfeita para todas as ocasiões!
+              Venha experimentar nossas pizzas cuidadosamente elaboradas e se encantar com a
+              combinação de sabores únicos. Conte conosco para levar até você uma experiência
+              incrível de pizza, com entrega rápida e eficiente.
             </p>
           </div>
         </div>
