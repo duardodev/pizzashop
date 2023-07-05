@@ -7,7 +7,7 @@ interface MenuProps {
 
 export function Menu({ pizzas }: MenuProps) {
   return (
-    <section className="max-w-[1120px] my-24 mx-auto">
+    <section id="menu" className="max-w-[1120px] py-24 mx-auto scroll-mt-16">
       <div className="flex flex-col items-center gap-24">
         <h1 className="text-title text-[40px] font-extrabold leading-tight">Cardápio</h1>
 

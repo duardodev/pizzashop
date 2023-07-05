@@ -7,15 +7,15 @@ import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
 
 export function Intro() {
   return (
-    <section className="max-w-[1120px] my-[116px] mx-auto">
+    <section className="max-w-[1120px] py-[116px] mx-auto scroll-py-24">
       <div className="flex justify-between items-start">
         <div className="max-w-[600px] flex flex-col gap-7">
           <div className="space-y-3">
-            <h1 className="text-title text-[40px] leading-tight font-extrabold">
+            <h1 className="text-title text-[40px] leading-snug font-extrabold">
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
               <span className="text-red">conforto</span> da sua casa!
             </h1>
-            <p className="text-text text-xl font-alt leading-tight">
+            <p className="text-text text-xl font-alt leading-snug">
               Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora e
               ainda quentinha!
             </p>

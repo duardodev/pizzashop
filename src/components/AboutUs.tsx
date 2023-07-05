@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export function AboutUs() {
   return (
-    <section className="max-w-[1120px] my-24 mx-auto">
+    <section id="aboutus" className="max-w-[1120px] py-24 scroll-mt-16 mx-auto">
       <div className="flex items-start justify-between">
         <Image src={PizzaMakerIllustration} alt="Ilustração de pizzaiolo" />
 
