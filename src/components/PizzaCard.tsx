@@ -3,8 +3,6 @@
 import Image from 'next/image';
 
 import { Pizza } from '@/types/pizza';
-import { CgSize } from 'react-icons/cg';
-import { MdOutlineRemove, MdOutlineAdd } from 'react-icons/md';
 import { useState } from 'react';
 import { QuantityInput } from './QuantityInput';
 
@@ -23,6 +21,10 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
     setQuantity(quantity => quantity - 1);
   }
 
+  const formattedPrice = pizza.mediumPrice.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2
+  });
+
   return (
     <div className="w-[310px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
       <Image src={pizza.image.url} width={210} height={210} alt="" className="-mt-14" />
@@ -37,7 +39,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
         <div className="flex justify-between items-center">
           <p className="text-text text-[22px] font-extrabold leading-tight">
             <span className="text-base font-alt font-normal">R$ {''}</span>
-            {pizza.mediumPrice}
+            {formattedPrice}
           </p>
 
           <QuantityInput
