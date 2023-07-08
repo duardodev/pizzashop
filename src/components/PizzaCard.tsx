@@ -1,14 +1,28 @@
+'use client';
+
 import Image from 'next/image';
 
 import { Pizza } from '@/types/pizza';
 import { CgSize } from 'react-icons/cg';
 import { MdOutlineRemove, MdOutlineAdd } from 'react-icons/md';
+import { useState } from 'react';
+import { QuantityInput } from './QuantityInput';
 
 interface PizzaCardProps {
   pizza: Pizza;
 }
 
 export function PizzaCard({ pizza }: PizzaCardProps) {
+  const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    setQuantity(quantity => quantity + 1);
+  }
+
+  function handleDecrease() {
+    setQuantity(quantity => quantity - 1);
+  }
+
   return (
     <div className="w-[310px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
       <Image src={pizza.image.url} width={210} height={210} alt="" className="-mt-14" />
@@ -26,24 +40,11 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
             {pizza.mediumPrice}
           </p>
 
-          <div className="flex items-center gap-2">
-            <div className="bg-button-dark p-2 rounded-md flex flex-row justify-between items-center gap-1">
-              <button>
-                <MdOutlineRemove size={18} className="text-red" />
-              </button>
-              <span className="text-title font-alt leading-tight">1</span>
-              <button>
-                <MdOutlineAdd size={18} className="text-red" />
-              </button>
-            </div>
-
-            <button
-              aria-label="Select Size"
-              className="bg-orange p-2 rounded-md flex justify-center items-center"
-            >
-              <CgSize size={20} className="text-white" />
-            </button>
-          </div>
+          <QuantityInput
+            quantity={quantity}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+          />
         </div>
 
         <button className="bg-red-dark text-white text-sm font-bold px-2 py-2.5 rounded-md">
