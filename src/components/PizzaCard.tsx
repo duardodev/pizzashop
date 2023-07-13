@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Pizza } from '@/types/pizza';
 import { useState } from 'react';
 import { QuantityInput } from './QuantityInput';
+import { CgSize } from 'react-icons/cg';
+import { SelectSize } from './SelectSize';
 
 interface PizzaCardProps {
   pizza: Pizza;
@@ -42,11 +44,15 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
             {formattedPrice}
           </p>
 
-          <QuantityInput
-            quantity={quantity}
-            handleIncrease={handleIncrease}
-            handleDecrease={handleDecrease}
-          />
+          <div className="flex items-center gap-2">
+            <QuantityInput
+              quantity={quantity}
+              handleIncrease={handleIncrease}
+              handleDecrease={handleDecrease}
+            />
+
+            <SelectSize />
+          </div>
         </div>
 
         <button className="bg-red-dark text-white text-sm font-bold px-2 py-2.5 rounded-md">
