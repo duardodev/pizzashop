@@ -5,6 +5,7 @@ import { Menu } from '@/components/Menu';
 
 import { fetchHygraphQuery } from '@/utils/fetch-hygraph-query';
 import { Pizza } from '@/types/pizza';
+import { Footer } from '@/components/Footer';
 
 interface PizzasData {
   pizzas: Pizza[];
@@ -44,6 +45,8 @@ export default async function Home() {
       <Divider gradientTo="right" />
 
       <Menu pizzas={pizzas} />
+
+      <Footer />
     </>
   );
 }
