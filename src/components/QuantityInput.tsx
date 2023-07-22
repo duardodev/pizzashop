@@ -1,13 +1,19 @@
-import { CgSize } from 'react-icons/cg';
+'use client';
+
+import { useState } from 'react';
 import { MdOutlineAdd, MdOutlineRemove } from 'react-icons/md';
 
-interface QuantityInput {
-  quantity: number;
-  handleIncrease: () => void;
-  handleDecrease: () => void;
-}
+export function QuantityInput() {
+  const [quantity, setQuantity] = useState(1);
 
-export function QuantityInput({ quantity, handleIncrease, handleDecrease }: QuantityInput) {
+  function handleIncrease() {
+    setQuantity(quantity => quantity + 1);
+  }
+
+  function handleDecrease() {
+    setQuantity(quantity => quantity - 1);
+  }
+
   return (
     <div className="bg-button-dark p-2 rounded-md flex flex-row justify-between items-center gap-1">
       <button onClick={handleDecrease} disabled={quantity <= 1}>

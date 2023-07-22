@@ -1,5 +1,3 @@
-'use client';
-
 import { MdShoppingCart } from 'react-icons/md';
 
 import Link from 'next/link';

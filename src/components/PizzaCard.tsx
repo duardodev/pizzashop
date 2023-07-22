@@ -1,28 +1,14 @@
-'use client';
-
 import Image from 'next/image';
 
-import { Pizza } from '@/types/pizza';
-import { useState } from 'react';
 import { QuantityInput } from './QuantityInput';
-import { CgSize } from 'react-icons/cg';
 import { SelectSize } from './SelectSize';
+import { Pizza } from '@/types/pizza';
 
 interface PizzaCardProps {
   pizza: Pizza;
 }
 
 export function PizzaCard({ pizza }: PizzaCardProps) {
-  const [quantity, setQuantity] = useState(1);
-
-  function handleIncrease() {
-    setQuantity(quantity => quantity + 1);
-  }
-
-  function handleDecrease() {
-    setQuantity(quantity => quantity - 1);
-  }
-
   const formattedPrice = pizza.mediumPrice.toLocaleString('pt-BR', {
     minimumFractionDigits: 2
   });
@@ -45,12 +31,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
           </p>
 
           <div className="flex items-center gap-2">
-            <QuantityInput
-              quantity={quantity}
-              handleIncrease={handleIncrease}
-              handleDecrease={handleDecrease}
-            />
-
+            <QuantityInput />
             <SelectSize />
           </div>
         </div>
