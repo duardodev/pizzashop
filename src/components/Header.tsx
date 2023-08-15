@@ -40,9 +40,12 @@ export function Header() {
               </Link>
             </nav>
 
-            <button className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center">
+            <Link
+              href="/checkout"
+              className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center"
+            >
               <MdShoppingCart size={24} className="text-orange" />
-            </button>
+            </Link>
           </div>
         </div>
       ) : (

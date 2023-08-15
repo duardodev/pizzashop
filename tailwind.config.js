@@ -17,7 +17,7 @@ module.exports = {
       colors: {
         white: '#FFFFFF',
         backgroud: '#FAFAFA',
-        card: '#F0F0F5',
+        card: '#f3f2f2',
         button: '#E2E8F0',
         label: '#8D8686',
         text: '#574F4D',
@@ -27,7 +27,7 @@ module.exports = {
         orange: '#F97316',
         green: '#4ADE80',
 
-        'button-dark': '#E4E4E7',
+        'button-dark': '#e6e5e5',
         'red-dark': '#DC2626',
         'red-light': '#FEE2E2',
         'red-border': '#FECACA',
