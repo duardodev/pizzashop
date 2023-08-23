@@ -13,7 +13,7 @@ export function PizzaSelected() {
         <Image src={pizzaImg} height={72} width={72} alt="Imagem de uma pizza" />
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-title font-alt">Calabresa</h2>
+          <h2 className="text-title text-lg font-alt">Calabresa</h2>
 
           <div className="flex items-center gap-2">
             <QuantityInput />

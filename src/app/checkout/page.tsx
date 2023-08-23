@@ -9,7 +9,7 @@ export default function Checkout() {
   return (
     <section className="max-w-[1120px] mx-auto mt-[60px]">
       <div className="flex justify-between gap-10">
-        <div className="w-[560px] flex flex-col items-start gap-3">
+        <div className="w-[600px] flex flex-col items-start gap-3">
           <h1 className="text-title text-lg font-bold">Complete seu pedido</h1>
 
           <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-7">
@@ -17,41 +17,41 @@ export default function Checkout() {
               <RiMapPinLine size={22} className="text-orange" />
 
               <div>
-                <h2 className="text-title font-alt leading-tight">Endereço</h2>
-                <p className="text-text text-sm font-alt">
+                <h2 className="text-title text-lg font-alt leading-tight">Endereço</h2>
+                <p className="text-text font-alt">
                   Informe o endereço onde deseja receber seu pedido.
                 </p>
               </div>
             </div>
 
-            <div className="w-full grid grid-cols-[284px_200px] gap-x-3 gap-y-4">
+            <div className="w-full grid grid-cols-[302px_222px] gap-x-3 gap-y-4">
               <input
                 type="text"
-                className="h-[42px] bg-button-dark text-text text-sm font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+                className="h-[42px] bg-button-dark text-text font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
                 placeholder="Cidade"
               />
 
               <input
                 type="text"
-                className="h-[42px] bg-button-dark text-text text-sm font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+                className="h-[42px] bg-button-dark text-text font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
                 placeholder="Bairro"
               />
 
               <input
                 type="text"
-                className="h-[42px] bg-button-dark text-text text-sm font-alt p-3 rounded border border-solid border-button-dark outline-none col-span-2 focus:border-orange placeholder:text-label transition-colors"
+                className="h-[42px] bg-button-dark text-text font-alt p-3 rounded border border-solid border-button-dark outline-none col-span-2 focus:border-orange placeholder:text-label transition-colors"
                 placeholder="Rua"
               />
 
               <input
                 type="number"
-                className="h-[42px] bg-button-dark text-text text-sm font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+                className="h-[42px] bg-button-dark text-text font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
                 placeholder="Número"
               />
 
               <input
                 type="text"
-                className="h-[42px] bg-button-dark text-text text-sm font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+                className="h-[42px] bg-button-dark text-text font-alt p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
                 placeholder="Complemento"
               />
             </div>
@@ -62,25 +62,25 @@ export default function Checkout() {
               <MdOutlineAttachMoney size={22} className="text-green" />
 
               <div>
-                <h2 className="text-title font-alt leading-tight">Pagamento</h2>
-                <p className="text-text text-sm font-alt">
+                <h2 className="text-title text-lg font-alt leading-tight">Pagamento</h2>
+                <p className="text-text font-alt">
                   O pagamento é feito na entrega. Escolha a forma que deseja pagar.
                 </p>
               </div>
             </div>
 
-            <div className="w-full flex gap-2">
-              <button className="h-12 bg-button-dark text-text text-xs font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
+            <div className="w-full flex gap-2.5">
+              <button className="h-12 bg-button-dark text-text text-sm font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
                 <BsCash size={17} className="text-green" />
                 Dinheiro
               </button>
 
-              <button className="h-12 bg-button-dark text-text text-xs font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
+              <button className="h-12 bg-button-dark text-text text-sm font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
                 <BsCreditCard size={17} className="text-green" />
                 Cartão de débito
               </button>
 
-              <button className="h-12 bg-button-dark text-text text-xs font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
+              <button className="h-12 bg-button-dark text-text text-sm font-alt uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300">
                 <PiBankDuotone size={19} className="text-green" />
                 Cartão de crétido
               </button>
@@ -88,7 +88,7 @@ export default function Checkout() {
           </div>
         </div>
 
-        <div className="w-[520px] flex flex-col items-start gap-3">
+        <div className="w-[480px] flex flex-col items-start gap-3">
           <h1 className="text-title text-lg font-bold">Pizzas selecionadas</h1>
 
           <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-6">
