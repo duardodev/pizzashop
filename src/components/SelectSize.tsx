@@ -33,8 +33,8 @@ export function SelectSize() {
           <CgSize size={20} className="text-white" />
         </button>
       </Popover.Trigger>
-      <Popover.Content className="bg-card w-60 z-50 rounded-lg p-4 shadow-md">
-        <h1 className="text-text text-lg font-alt font-bold leading-tight">Tamanho da pizza</h1>
+      <Popover.Content className="bg-backgroud w-56 z-50 rounded-lg p-4 shadow-md">
+        <h1 className="text-text text-lg font-alt font-semibold leading-tight">Tamanho da pizza</h1>
 
         <Popover.Close className="absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
           <Cross1Icon className="h-4 w-4 text-title hover:text-orange" />
@@ -44,7 +44,7 @@ export function SelectSize() {
           <RadioGroup.Root aria-label="Pizza sizes" defaultValue={size} onValueChange={setSize}>
             <div className="mt-3 space-y-3">
               {sizes.map(size => (
-                <div key={size.title} className="flex items-center">
+                <div key={size.title} className="flex items-center gap-2">
                   <RadioGroup.Item
                     id={size.title}
                     value={size.title}
@@ -55,7 +55,7 @@ export function SelectSize() {
                     </RadioGroup.Indicator>
                   </RadioGroup.Item>
 
-                  <label htmlFor={size.title} className="text-text font-medium font-alt ml-2 block">
+                  <label htmlFor={size.title} className="text-center font-alt leading-tight">
                     {size.title}
                   </label>
                 </div>
