@@ -1,28 +1,17 @@
-'use client';
-
-import { useState } from 'react';
-
 import * as Popover from '@radix-ui/react-popover';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
 import { CgSize } from 'react-icons/cg';
 
-const sizes = [
-  {
-    title: 'Grande'
-  },
-  {
-    title: 'Média'
-  },
-  {
-    title: 'Pequena'
-  }
-];
+const sizes = ['Grande', 'Média', 'Pequena'];
 
-export function SelectSize() {
-  const [size, setSize] = useState(sizes[0].title);
+interface SelectSizeProps {
+  onSizeChange: (selectedSize: string) => void;
+  size: string;
+}
 
+export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
@@ -41,13 +30,17 @@ export function SelectSize() {
         </Popover.Close>
 
         <form>
-          <RadioGroup.Root aria-label="Pizza sizes" defaultValue={size} onValueChange={setSize}>
+          <RadioGroup.Root
+            aria-label="Pizza sizes"
+            defaultValue={size}
+            onValueChange={onSizeChange}
+          >
             <div className="mt-3 space-y-3">
               {sizes.map(size => (
-                <div key={size.title} className="flex items-center gap-2">
+                <div key={size} className="flex items-center gap-2">
                   <RadioGroup.Item
-                    id={size.title}
-                    value={size.title}
+                    id={size}
+                    value={size}
                     className="w-4 h-4 rounded-full relative radix-state-checked:bg-orange radix-state-unchecked:bg-button-dark focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75 focus-visible:ring-offset-2"
                   >
                     <RadioGroup.Indicator className="leading-0 flex items-center justify-center absolute inset-0">
@@ -55,8 +48,8 @@ export function SelectSize() {
                     </RadioGroup.Indicator>
                   </RadioGroup.Item>
 
-                  <label htmlFor={size.title} className="text-center font-alt leading-tight">
-                    {size.title}
+                  <label htmlFor={size} className="text-center font-alt leading-tight">
+                    {size}
                   </label>
                 </div>
               ))}

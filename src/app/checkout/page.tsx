@@ -1,11 +1,16 @@
+'use client';
+
 import { BsCash, BsCreditCard } from 'react-icons/bs';
 import { MdOutlineAttachMoney } from 'react-icons/md';
 import { RiMapPinLine } from 'react-icons/ri';
 import { PiBankDuotone } from 'react-icons/pi';
 
 import { PizzaSelected } from '@/components/PizzaSelected';
+import { useCart } from '@/hooks/useCart';
 
 export default function Checkout() {
+  const { cartItems } = useCart();
+
   return (
     <section className="max-w-[1120px] mx-auto mt-[60px]">
       <div className="flex justify-between gap-10">
@@ -92,7 +97,9 @@ export default function Checkout() {
           <h1 className="text-title text-lg font-bold">Pizzas selecionadas</h1>
 
           <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-6">
-            <PizzaSelected />
+            {cartItems.map(item => {
+              return <PizzaSelected key={item.slug} pizza={item} />;
+            })}
 
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">

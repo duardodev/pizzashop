@@ -1,5 +1,6 @@
-import { Poppins, Roboto } from 'next/font/google';
 import { Header } from '@/components/Header';
+import { CartProvider } from '@/contexts/CartContext';
+import { Poppins, Roboto } from 'next/font/google';
 
 import './globals.css';
 
@@ -26,9 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${poppins.className} scroll-smooth`}>
       <body className={`${poppins.variable} ${roboto.variable} font-sans bg-backgroud text-text`}>
-        <Header />
+        <CartProvider>
+          <Header />
 
-        <main>{children}</main>
+          <main>{children}</main>
+        </CartProvider>
       </body>
     </html>
   );

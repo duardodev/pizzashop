@@ -1,33 +1,69 @@
+'use client';
+
 import Image from 'next/image';
 
 import { MdOutlineRemoveCircleOutline } from 'react-icons/md';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
 
-import pizzaImg from '../../public/pizza-calabresa.png';
+import { CartItem } from '../contexts/CartContext';
+import { useCart } from '@/hooks/useCart';
 
-export function PizzaSelected() {
+interface PizzaSelectedProps {
+  pizza: CartItem;
+}
+
+export function PizzaSelected({ pizza }: PizzaSelectedProps) {
+  const { changeCartItemQuantity, removeCartItem, changeCartItemSize } = useCart();
+  const pizzaTotal = pizza.price * pizza.quantity;
+
+  const formattedPrice = pizzaTotal.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2
+  });
+
+  function handleIncrease() {
+    changeCartItemQuantity(pizza.slug, 'increase');
+  }
+
+  function handleDecrease() {
+    changeCartItemQuantity(pizza.slug, 'decrease');
+  }
+
+  function handleRemove() {
+    removeCartItem(pizza.slug);
+  }
+
+  function handleSizeChange(selectedSize: string) {
+    changeCartItemSize(pizza.slug, selectedSize);
+  }
+
   return (
     <div className="w-full pb-6 border-b border-label/20 flex items-start justify-between">
       <div className="flex items-center gap-5">
-        <Image src={pizzaImg} height={72} width={72} alt="Imagem de uma pizza" />
+        <Image src={pizza.image.url} height={72} width={72} alt="Imagem de uma pizza" />
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-title text-lg font-alt">Calabresa</h2>
+          <h2 className="text-title text-lg font-alt">{pizza.title}</h2>
 
           <div className="flex items-center gap-2">
-            <QuantityInput />
-            <SelectSize />
+            <QuantityInput
+              quantity={pizza.quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
+
+            <SelectSize size={pizza.size} onSizeChange={handleSizeChange} />
           </div>
         </div>
       </div>
 
       <div className="flex items-center justify-center gap-2">
-        <h2 className="font-alt font-bold">R$ 19,90</h2>
+        <h2 className="font-alt font-bold">R$ {formattedPrice}</h2>
 
         <button>
           <MdOutlineRemoveCircleOutline
             size={18}
+            onClick={handleRemove}
             className="text-red hover:text-red/70 transition-colors"
           />
         </button>
