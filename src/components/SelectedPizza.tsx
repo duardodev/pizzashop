@@ -9,11 +9,11 @@ import { SelectSize } from './SelectSize';
 import { CartItem } from '../contexts/CartContext';
 import { useCart } from '@/hooks/useCart';
 
-interface PizzaSelectedProps {
+interface SelectedPizzaProps {
   pizza: CartItem;
 }
 
-export function PizzaSelected({ pizza }: PizzaSelectedProps) {
+export function SelectedPizza({ pizza }: SelectedPizzaProps) {
   const { changeCartItemQuantity, removeCartItem, changeCartItemSize } = useCart();
   const pizzaTotal = pizza.price * pizza.quantity;
 
