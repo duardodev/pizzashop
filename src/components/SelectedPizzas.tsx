@@ -3,8 +3,23 @@
 import { useCart } from '@/hooks/useCart';
 import { SelectedPizza } from './SelectedPizza';
 
+const deliveryPrice = 8;
+
 export function SelectedPizzas() {
-  const { cartItems } = useCart();
+  const { cartItems, cartItemsTotal, cartQuantity } = useCart();
+  const cartTotal = deliveryPrice + cartItemsTotal;
+
+  const formattedDeliveryPrice = deliveryPrice.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2
+  });
+
+  const formattedItemsTotal = cartItemsTotal.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2
+  });
+
+  const formattedCartTotal = cartTotal.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2
+  });
 
   return (
     <div className="w-[480px] flex flex-col items-start gap-3">
@@ -18,21 +33,24 @@ export function SelectedPizzas() {
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <p className="font-alt">Entrega</p>
-            <p className="font-alt">R$ 8,00</p>
+            <p className="font-alt">R$ {formattedDeliveryPrice}</p>
           </div>
 
           <div className="flex items-center justify-between">
             <p className="font-alt">Total de itens</p>
-            <p className="font-alt">R$ 19,90</p>
+            <p className="font-alt">R$ {formattedItemsTotal}</p>
           </div>
 
           <div className="flex items-center justify-between">
             <p className="text-lg font-alt font-bold">Total</p>
-            <p className="text-lg font-alt font-bold">R$ 27,90</p>
+            <p className="text-lg font-alt font-bold">R$ {formattedCartTotal}</p>
           </div>
         </div>
 
-        <button className="h-11 bg-red text-white text-sm font-alt font-bold uppercase rounded-md py-3 px-2 hover:bg-red-dark transition-colors duration-300">
+        <button
+          disabled={cartQuantity <= 0}
+          className="h-11 bg-red text-white text-sm font-alt font-bold uppercase rounded-md py-3 px-2 enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+        >
           Confirmar pedido
         </button>
       </div>

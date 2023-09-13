@@ -12,10 +12,11 @@ export interface CartItem extends Pizza {
 
 interface CartContextType {
   cartItems: CartItem[];
-  addPizzaToCart: (pizza: CartItem) => void;
   cartQuantity: number;
-  changeCartItemQuantity: (cartItemSlug: string, type: 'increase' | 'decrease') => void;
+  cartItemsTotal: number;
+  addPizzaToCart: (pizza: CartItem) => void;
   removeCartItem: (cartItemSlug: string) => void;
+  changeCartItemQuantity: (cartItemSlug: string, type: 'increase' | 'decrease') => void;
   changeCartItemSize: (cartItemSlug: string, selectedSize: string) => void;
 }
 
@@ -29,6 +30,10 @@ export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const cartQuantity = cartItems.length;
+
+  const cartItemsTotal = cartItems.reduce((total, cartItem) => {
+    return total + cartItem.price * cartItem.quantity;
+  }, 0);
 
   function addPizzaToCart(pizza: CartItem) {
     const pizzaAlreadyExistsInCart = cartItems.findIndex(cartItem => cartItem.slug === pizza.slug);
@@ -78,6 +83,8 @@ export function CartProvider({ children }: CartProviderProps) {
       if (pizzaExistsInCart >= 0) {
         const item = draft[pizzaExistsInCart];
 
+        item.size = selectedSize;
+
         if (selectedSize === 'Grande') {
           item.price = item.maximumPrice;
         } else if (selectedSize === 'Média') {
@@ -99,7 +106,8 @@ export function CartProvider({ children }: CartProviderProps) {
         cartQuantity,
         changeCartItemQuantity,
         removeCartItem,
-        changeCartItemSize
+        changeCartItemSize,
+        cartItemsTotal
       }}
     >
       {children}
