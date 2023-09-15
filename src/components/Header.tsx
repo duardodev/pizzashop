@@ -67,10 +67,10 @@ export function Header() {
 
           <Link
             href="/checkout"
-            className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center"
+            className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
           >
             {cartQuantity >= 1 && (
-              <span className="h-5 w-5 rounded-[50%] absolute -top-1/2 right-1/2">
+              <span className="h-5 w-5 bg-orange text-white text-xs font-bold font-alt rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
                 {cartQuantity}
               </span>
             )}
