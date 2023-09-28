@@ -7,10 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: 'var(--font-poppins)',
-        alt: 'var(--font-roboto)'
-      },
       lineHeight: {
         tight: 1.3
       },

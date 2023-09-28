@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BsCreditCard, BsCreditCardFill } from 'react-icons/bs';
+import { BsCreditCardFill } from 'react-icons/bs';
 import { TbArrowBigDownLineFilled } from 'react-icons/tb';
 import { MdDeliveryDining } from 'react-icons/md';
 
@@ -9,15 +9,15 @@ import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
 
 export function Intro() {
   return (
-    <section className="max-w-[1120px] py-[116px] mx-auto scroll-py-24">
-      <div className="flex justify-between items-center">
+    <section className="max-w-[1120px] py-24 mx-auto scroll-py-24">
+      <div className="flex justify-between">
         <div className="max-w-[540px] flex flex-col gap-7">
           <div className="space-y-3">
-            <h1 className="text-title text-4xl leading-snug font-extrabold">
+            <h1 className="text-title text-4xl font-extrabold leading-tight">
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
               <span className="text-red">conforto</span> <br /> da sua casa!
             </h1>
-            <p className="text-text text-lg font-alt leading-snug">
+            <p className="text-text text-lg leading-snug">
               Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora e
               ainda quentinha!
             </p>
@@ -25,7 +25,7 @@ export function Intro() {
 
           <Link
             href="#menu"
-            className="w-56 h-12 bg-red-dark text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red transition-colors"
+            className="w-52 h-12 bg-red-dark text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red transition-colors"
           >
             <TbArrowBigDownLineFilled size={20} />
             Ver cardápio
@@ -37,7 +37,7 @@ export function Intro() {
                 <BsCreditCardFill size={16} className="text-white" />
               </div>
 
-              <p className="text-text font-alt">Compra fácil e segura</p>
+              <p className="text-text">Compra fácil e segura</p>
             </div>
 
             <div className="flex items-center gap-2">
@@ -45,12 +45,12 @@ export function Intro() {
                 <MdDeliveryDining size={20} className="text-white" />
               </div>
 
-              <p className="text-text font-alt">Entrega rápida e eficiente</p>
+              <p className="text-text">Entrega rápida e eficiente</p>
             </div>
           </div>
         </div>
 
-        <Image src={DeliveryIllustration} height={410} width={410} alt="Ilustração de entrega" />
+        <Image src={DeliveryIllustration} height={390} width={390} alt="Ilustração de entrega" />
       </div>
     </section>
   );

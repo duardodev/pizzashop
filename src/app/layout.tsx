@@ -1,20 +1,12 @@
 import { Header } from '@/components/Header';
 import { CartProvider } from '@/contexts/CartContext';
-import { Poppins, Roboto } from 'next/font/google';
+import { Roboto_Flex as Roboto } from 'next/font/google';
 
 import './globals.css';
 
-const poppins = Poppins({
-  weight: ['400', '500', '800'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  preload: true
-});
-
 const roboto = Roboto({
+  weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-roboto',
   preload: true
 });
 
@@ -25,8 +17,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.className} scroll-smooth`}>
-      <body className={`${poppins.variable} ${roboto.variable} font-sans bg-backgroud text-text`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${roboto.className} bg-backgroud text-text`}>
         <CartProvider>
           <Header />
 

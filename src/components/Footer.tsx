@@ -19,12 +19,12 @@ export function Footer() {
         <div className="flex justify-between items-center">
           <div className="space-y-5">
             <Link href="/">
-              <Image src={alternativeLogoImg} height={24} alt="Logotipo alternativo do HotPizza" />
+              <Image src={alternativeLogoImg} height={22} alt="Logotipo alternativo do HotPizza" />
             </Link>
 
             <div>
-              <p className="text-red-light font-alt">©2023 HotPizza.</p>
-              <p className="text-red-light font-alt">Todos os direitos reservados.</p>
+              <p className="text-red-light ">©2023 HotPizza.</p>
+              <p className="text-red-light ">Todos os direitos reservados.</p>
             </div>
 
             <div className="flex gap-6">
@@ -58,21 +58,21 @@ export function Footer() {
           <div className="space-y-7">
             <div className="flex items-center gap-3">
               <RiPhoneLine size={22} className="text-red-light" />
-              <p className="text-red-light font-alt">75 9876-5432</p>
+              <p className="text-red-light">75 9876-5432</p>
             </div>
             <div className="flex items-center gap-3">
               <RiMapPinLine size={22} className="text-red-light" />
-              <p className="text-red-light font-alt">Salvador, Bahia</p>
+              <p className="text-red-light">Salvador, Bahia</p>
             </div>
             <div className="flex items-center gap-3">
               <RiMailLine size={22} className="text-red-light" />
-              <p className="text-red-light font-alt">contato@hotpizza.com</p>
+              <p className="text-red-light">contato@hotpizza.com</p>
             </div>
           </div>
         </div>
 
         <div className="self-center">
-          <h2 className="text-red-light font-alt">
+          <h2 className="text-red-light">
             Desenvolvido por{' '}
             <a
               href="https://github.com/sampaiocode"

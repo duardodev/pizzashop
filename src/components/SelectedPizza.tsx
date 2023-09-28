@@ -43,7 +43,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
         <Image src={pizza.image.url} height={72} width={72} alt="Imagem de uma pizza" />
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-title text-lg font-alt">{pizza.title}</h2>
+          <h2 className="text-title">{pizza.title}</h2>
 
           <div className="flex items-center gap-2">
             <QuantityInput
@@ -58,9 +58,9 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
       </div>
 
       <div className="flex items-center justify-center gap-2">
-        <h2 className="font-alt font-bold">R$ {formattedPrice}</h2>
+        <h2 className="font-semibold">R$ {formattedPrice}</h2>
 
-        <button>
+        <button type="button">
           <MdOutlineRemoveCircleOutline
             size={18}
             onClick={handleRemove}

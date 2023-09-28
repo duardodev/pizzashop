@@ -60,18 +60,18 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
 
   return (
     <div className="w-[310px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
-      <Image src={pizza.image.url} width={200} height={200} alt="" className="-mt-14" />
+      <Image src={pizza.image.url} width={185} height={185} alt="" className="-mt-14" />
 
       <div className="w-full flex flex-col gap-4">
         <div className="h-[78px] flex flex-col items-center gap-2">
-          <h1 className="text-title text-xl font-bold leading-tight">{pizza.title}</h1>
+          <h1 className="text-title text-xl font-extrabold leading-tight">{pizza.title}</h1>
 
-          <p className="text-label text-center font-alt leading-tight">{pizza.description}</p>
+          <p className="text-label text-center leading-tight">{pizza.description}</p>
         </div>
 
         <div className="flex justify-between items-center">
           <p className="text-text text-xl font-extrabold leading-tight">
-            <span className="text-base font-alt font-normal">R$ {''}</span>
+            <span className="text-sm font-normal">R$ {''}</span>
             {formattedPrice}
           </p>
 
