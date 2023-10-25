@@ -3,10 +3,10 @@ import { PiBankDuotone } from 'react-icons/pi';
 
 export function PaymentMethodOptions() {
   return (
-    <div className="w-full flex gap-2.5">
+    <div className="w-full flex gap-3">
       <button
         type="button"
-        className="h-12 bg-button-dark text-text text-xs uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
+        className="h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
       >
         <BsCash size={17} className="text-green" />
         Dinheiro
@@ -14,7 +14,7 @@ export function PaymentMethodOptions() {
 
       <button
         type="button"
-        className="h-12 bg-button-dark text-text text-xs uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
+        className="w-[202px] h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
       >
         <BsCreditCard size={17} className="text-green" />
         Cartão de débito
@@ -22,7 +22,7 @@ export function PaymentMethodOptions() {
 
       <button
         type="button"
-        className="h-12 bg-button-dark text-text text-xs uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
+        className="w-[202px] h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
       >
         <PiBankDuotone size={19} className="text-green" />
         Cartão de crétido

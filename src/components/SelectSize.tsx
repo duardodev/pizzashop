@@ -22,11 +22,11 @@ export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
           <CgSize size={20} className="text-white" />
         </button>
       </Popover.Trigger>
-      <Popover.Content className="bg-backgroud w-52 z-50 rounded-lg p-4 shadow-md">
+      <Popover.Content className="bg-background w-56 z-50 rounded-lg p-4 shadow-md">
         <div className="flex items-center justify-between">
-          <h1 className="text-text font-bold">Tamanho da pizza</h1>
+          <h1 className="text-text text-lg font-semibold">Tamanho da pizza</h1>
 
-          <Popover.Close className="rounded-full p-1 focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
+          <Popover.Close className="rounded-full focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
             <Cross1Icon className="h-4 w-4 text-title hover:text-orange" />
           </Popover.Close>
         </div>
@@ -50,7 +50,7 @@ export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
                     </RadioGroup.Indicator>
                   </RadioGroup.Item>
 
-                  <label htmlFor={size} className="text-center text-sm font-medium leading-tight">
+                  <label htmlFor={size} className="text-center leading-tight">
                     {size}
                   </label>
                 </div>

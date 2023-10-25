@@ -12,7 +12,7 @@ module.exports = {
       },
       colors: {
         white: '#FFFFFF',
-        backgroud: '#FAFAFA',
+        background: '#FAFAFA',
         card: '#f3f2f2',
         button: '#E2E8F0',
         label: '#8D8686',
@@ -28,6 +28,12 @@ module.exports = {
         'red-light': '#FEE2E2',
         'red-border': '#FECACA',
         'orange-light': '#FFEDD5'
+      },
+      animation: {
+        'toast-hide': 'toast-hide 100ms ease-in forwards',
+        'toast-slide-in-right': 'toast-slide-in-right 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'toast-swipe-out-x': 'toast-swipe-out-x 100ms ease-out forwards',
+        'toast-swipe-out-y': 'toast-swipe-out-y 100ms ease-out forwards'
       }
     }
   },

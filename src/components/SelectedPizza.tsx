@@ -43,7 +43,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
         <Image src={pizza.image.url} height={72} width={72} alt="Imagem de uma pizza" />
 
         <div className="flex flex-col gap-2">
-          <h2 className="text-title">{pizza.title}</h2>
+          <h2 className="text-lg text-title">{pizza.title}</h2>
 
           <div className="flex items-center gap-2">
             <QuantityInput

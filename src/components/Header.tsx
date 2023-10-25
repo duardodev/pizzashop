@@ -5,15 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { MdArrowBack, MdShoppingCart } from 'react-icons/md';
-import logoImg from '../../public/logo.svg';
 import { useCart } from '@/hooks/useCart';
+import logoImg from '../../public/logo.svg';
 
 export function Header() {
   const { cartQuantity } = useCart();
   const pathname = usePathname();
 
   return (
-    <header className="h-[90px] w-full bg-backgroud border-b border-red-border sticky top-0 left-0 z-10">
+    <header className="h-[90px] w-full bg-background border-b border-red-border sticky top-0 left-0 z-10">
       {pathname === '/' ? (
         <div className="h-[90px] max-w-[1120px] mx-auto flex items-center justify-between">
           <Link href="/">
@@ -35,10 +35,10 @@ export function Header() {
 
             <Link
               href="/checkout"
-              className="h-8 w-8 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
+              className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
             >
               {cartQuantity >= 1 && (
-                <span className="h-[18px] w-[18px] bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
+                <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
                   {cartQuantity}
                 </span>
               )}
@@ -58,10 +58,10 @@ export function Header() {
 
           <Link
             href="/checkout"
-            className="h-8 w-8 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
+            className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
           >
             {cartQuantity >= 1 && (
-              <span className="h-[18px] w-[18px] bg-orange text-white text-xs font-bold rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
+              <span className="h-5 w-5 bg-orange text-white text-xs font-bold rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
                 {cartQuantity}
               </span>
             )}

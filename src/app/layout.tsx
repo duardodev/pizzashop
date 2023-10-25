@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${roboto.className} bg-backgroud text-text`}>
+      <body className={`${roboto.className} bg-background text-text`}>
         <CartProvider>
           <Header />
 

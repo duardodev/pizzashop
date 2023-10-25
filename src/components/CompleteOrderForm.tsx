@@ -5,16 +5,16 @@ import { PaymentMethodOptions } from './PaymentMethodOptions';
 
 export function CompleteOrderForm() {
   return (
-    <div className="w-[600px] flex flex-col items-start gap-3">
-      <h1 className="text-title text-lg font-extrabold">Complete seu pedido</h1>
+    <div className="w-[620px] flex flex-col items-start gap-3">
+      <h1 className="text-title text-xl font-extrabold">Detalhes da entrega</h1>
 
-      <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-7">
+      <div className="w-full bg-card rounded-lg p-[38px] flex flex-col gap-7">
         <div className="flex items-start gap-2">
           <RiMapPinLine size={22} className="text-orange" />
 
           <div>
-            <h2 className="text-title leading-tight">Endereço</h2>
-            <p className="text-text text-sm">Informe o endereço onde deseja receber seu pedido.</p>
+            <h2 className="text-title text-lg leading-tight">Endereço</h2>
+            <p className="text-text">Informe o endereço onde deseja receber seu pedido.</p>
           </div>
         </div>
 
@@ -26,10 +26,8 @@ export function CompleteOrderForm() {
           <MdOutlineAttachMoney size={22} className="text-green" />
 
           <div>
-            <h2 className="text-title leading-tight">Pagamento</h2>
-            <p className="text-text text-sm">
-              O pagamento é feito na entrega. Escolha a forma que deseja pagar.
-            </p>
+            <h2 className="text-title text-lg leading-tight">Pagamento</h2>
+            <p className="text-text">Escolha a forma que deseja pagar.</p>
           </div>
         </div>
 
