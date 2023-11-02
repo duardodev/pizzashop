@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}'
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}'
   ],
   theme: {
     extend: {
@@ -37,5 +38,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('tailwindcss-radix')()]
+  plugins: [require('tailwindcss-radix')(), require('tailwindcss-animate')]
 };
