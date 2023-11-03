@@ -2,14 +2,20 @@ import { Intro } from '@/components/Intro';
 import { Divider } from '@/components/Divider';
 import { AboutUs } from '@/components/AboutUs';
 import { Menu } from '@/components/Menu';
+import { Footer } from '@/components/Footer';
 
 import { fetchHygraphQuery } from '@/utils/fetch-hygraph-query';
 import { Pizza } from '@/types/pizza';
-import { Footer } from '@/components/Footer';
 
 interface PizzasData {
   pizzas: Pizza[];
 }
+
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home | HotPizza'
+};
 
 export default async function Home() {
   const getPizzasData = async (): Promise<PizzasData> => {
