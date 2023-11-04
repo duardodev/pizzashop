@@ -1,7 +1,6 @@
+import { Metadata } from 'next';
 import { CompleteOrderForm } from '@/components/CompleteOrderForm';
 import { SelectedPizzas } from '@/components/SelectedPizzas';
-
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Checkout'

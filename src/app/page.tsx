@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { Intro } from '@/components/Intro';
 import { Divider } from '@/components/Divider';
 import { AboutUs } from '@/components/AboutUs';
@@ -10,8 +12,6 @@ import { Pizza } from '@/types/pizza';
 interface PizzasData {
   pizzas: Pizza[];
 }
-
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Home | HotPizza'
