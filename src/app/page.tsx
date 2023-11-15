@@ -42,7 +42,7 @@ export default async function Home() {
 
   return (
     <>
-      <Intro />
+      {/* <Intro />
 
       <Divider gradientTo="left" />
 
@@ -52,7 +52,7 @@ export default async function Home() {
 
       <Menu pizzas={pizzas} />
 
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
