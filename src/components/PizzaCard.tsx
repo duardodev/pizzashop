@@ -59,7 +59,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
   }
 
   return (
-    <div className="w-[310px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
+    <div className="w-[310px] max-[340px]:w-[280px] max-[310px]:w-[250px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
       <Image src={pizza.image.url} width={185} height={185} alt="" className="-mt-14" />
 
       <div className="w-full flex flex-col gap-4">

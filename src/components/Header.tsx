@@ -42,7 +42,7 @@ export function Header() {
             </nav>
 
             {isOpen && (
-              <nav className="w-full bg-background absolute top-56 left-0 right-0 sm:hidden flex flex-col items-center justify-center gap-16 transition">
+              <nav className="h-[calc(100vh-90px)] w-full bg-background absolute top-[90px] left-0 right-0 sm:hidden flex flex-col items-center justify-center gap-16 transition">
                 <Link
                   href="/"
                   onClick={toggleNavbar}

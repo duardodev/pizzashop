@@ -3,21 +3,20 @@ import Image from 'next/image';
 import alternativeLogoImg from '../../public/alternative-logo.svg';
 
 import {
-  RiFacebookCircleLine,
   RiInstagramLine,
+  RiFacebookCircleLine,
   RiMailLine,
   RiMapPinLine,
   RiPhoneLine,
-  RiTiktokLine,
-  RiYoutubeLine
+  RiTiktokLine
 } from 'react-icons/ri';
 
 export function Footer() {
   return (
-    <header className="h-72 w-full bg-red">
-      <div className="h-72 max-w-[1120px] py-10 mx-auto flex flex-col justify-between items-stretch">
-        <div className="flex justify-between items-center">
-          <div className="space-y-5">
+    <footer className="h-auto w-full bg-red">
+      <div className="h-auto max-w-[1120px] mx-auto px-6 py-10 flex flex-col justify-between items-stretch gap-16">
+        <div className="flex flex-col gap-10 min-[510px]:flex-row min-[510px]:justify-between min-[510px]:gap-4">
+          <div className="flex flex-col justify-between gap-5">
             <Link href="/">
               <Image src={alternativeLogoImg} height={22} alt="Logotipo alternativo do HotPizza" />
             </Link>
@@ -34,20 +33,16 @@ export function Footer() {
                   className="text-red-light hover:text-white transition-colors"
                 />
               </a>
-              <a href="/">
-                <RiTiktokLine
-                  size={22}
-                  className="text-red-light hover:text-white transition-colors"
-                />
-              </a>
-              <a href="/">
-                <RiYoutubeLine
-                  size={22}
-                  className="text-red-light hover:text-white transition-colors"
-                />
-              </a>
+
               <a href="/">
                 <RiFacebookCircleLine
+                  size={22}
+                  className="text-red-light hover:text-white transition-colors"
+                />
+              </a>
+
+              <a href="/">
+                <RiTiktokLine
                   size={22}
                   className="text-red-light hover:text-white transition-colors"
                 />
@@ -55,18 +50,20 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="space-y-7">
+          <div className="flex flex-col justify-between gap-5">
+            <div className="flex items-center gap-3">
+              <RiMailLine size={22} className="text-red-light" />
+              <p className="text-red-light">contato@hotpizza.com</p>
+            </div>
+
             <div className="flex items-center gap-3">
               <RiPhoneLine size={22} className="text-red-light" />
               <p className="text-red-light">75 9876-5432</p>
             </div>
+
             <div className="flex items-center gap-3">
               <RiMapPinLine size={22} className="text-red-light" />
               <p className="text-red-light">Salvador, Bahia</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <RiMailLine size={22} className="text-red-light" />
-              <p className="text-red-light">contato@hotpizza.com</p>
             </div>
           </div>
         </div>
@@ -85,6 +82,6 @@ export function Footer() {
           </h2>
         </div>
       </div>
-    </header>
+    </footer>
   );
 }

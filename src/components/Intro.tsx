@@ -9,15 +9,15 @@ import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
 
 export function Intro() {
   return (
-    <section className="max-w-[1120px] py-24 mx-auto scroll-py-24">
-      <div className="flex justify-between">
-        <div className="max-w-[540px] flex flex-col gap-7">
+    <section className="max-w-[1120px] mx-auto px-6 py-24 scroll-py-24">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+        <div className="max-w-[540px] flex items-center lg:items-start flex-col gap-7">
           <div className="space-y-3">
-            <h1 className="text-title text-4xl font-extrabold leading-tight">
+            <h1 className="text-title text-center lg:text-start text-[32px] min-[530px]:text-4xl font-extrabold leading-tight">
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
               <span className="text-red">conforto</span> <br /> da sua casa!
             </h1>
-            <p className="text-text text-lg leading-snug">
+            <p className="text-text text-center lg:text-start text-lg leading-snug">
               Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora e
               ainda quentinha!
             </p>
@@ -31,7 +31,7 @@ export function Intro() {
             Ver cardápio
           </Link>
 
-          <div className="mt-4 flex gap-12">
+          <div className="w-[220px] sm:w-full mt-4 flex flex-col sm:flex-row sm:justify-between lg:justify-normal gap-8 sm:gap-12">
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 bg-green rounded-full flex items-center justify-center">
                 <BsCreditCardFill size={16} className="text-white" />
@@ -45,12 +45,18 @@ export function Intro() {
                 <MdDeliveryDining size={20} className="text-white" />
               </div>
 
-              <p className="text-text">Entrega rápida e eficiente</p>
+              <p className="text-text">Entrega rápida e eficaz</p>
             </div>
           </div>
         </div>
 
-        <Image src={DeliveryIllustration} height={390} width={390} alt="Ilustração de entrega" />
+        <Image
+          src={DeliveryIllustration}
+          height={390}
+          width={390}
+          alt="Ilustração de entrega"
+          className="hidden lg:block"
+        />
       </div>
     </section>
   );
