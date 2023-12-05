@@ -31,10 +31,10 @@ export function SelectedPizzas() {
   }
 
   return (
-    <div className="w-[420px] flex flex-col items-start gap-3">
+    <div className="w-[620px] lg:w-[420px] flex flex-col items-start gap-3">
       <h1 className="text-title text-xl font-extrabold">Resumo do pedido</h1>
 
-      <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-6">
+      <div className="w-full bg-card rounded-lg mx-auto p-7 flex flex-col gap-6">
         {cartItems.map(item => {
           return <SelectedPizza key={item.slug} pizza={item} />;
         })}

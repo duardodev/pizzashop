@@ -95,7 +95,7 @@ export function Header() {
           </div>
         </div>
       ) : (
-        <div className="h-[90px] max-w-[1120px] mx-auto flex items-center justify-between">
+        <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
           <Link href="/">
             <MdArrowBack size={22} className="text-title" />
           </Link>

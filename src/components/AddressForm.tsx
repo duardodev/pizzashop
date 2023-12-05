@@ -1,13 +1,15 @@
 export function AddressForm() {
   return (
     <div className="w-full space-y-3">
-      <div className="grid grid-cols-[280px_252px] gap-3">
+      <div className="grid grid-cols-1 gap-3">
         <input
           type="number"
-          className="max-w-[200px] h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none col-span-full focus:border-orange placeholder:text-label transition-colors"
+          className="h-[42px] max-w-full sm:max-w-[210px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           placeholder="CEP"
         />
+      </div>
 
+      <div className="grid grid-cols-2 gap-3">
         <input
           type="text"
           className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
@@ -17,31 +19,31 @@ export function AddressForm() {
         <input
           type="text"
           className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="Rua"
+          placeholder="Bairro"
         />
       </div>
 
-      <div className="grid grid-cols-[200px_220px_100px] gap-3">
+      <div className="grid grid-cols-12 gap-3">
         <input
           type="text"
-          className="col h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="Bairro"
+          className="h-[42px] col-span-7 sm:col-span-8 bg-button-dark  text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          placeholder="Rua"
         />
 
         <input
           type="text"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="Complemento"
-        />
-
-        <input
-          type="number"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          className="h-[42px] col-span-5 sm:col-span-4 bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           placeholder="Número"
         />
       </div>
 
-      <div className="grid grid-cols-[240px_220px_60px] gap-3">
+      <div className="grid grid-cols-2 gap-3">
+        <input
+          type="number"
+          className="h-[42px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          placeholder="Complemento"
+        />
+
         <input
           type="text"
           className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
@@ -51,13 +53,7 @@ export function AddressForm() {
         <input
           type="number"
           className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="N.º de telefone"
-        />
-
-        <input
-          type="text"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="UF"
+          placeholder="Telefone"
         />
       </div>
     </div>

@@ -9,7 +9,7 @@ export function CompleteOrderForm() {
       <h1 className="text-title text-xl font-extrabold">Detalhes da entrega</h1>
 
       <div className="w-full bg-card rounded-lg p-[38px] flex flex-col gap-7">
-        <div className="flex items-start gap-2">
+        <div className="flex max-[530px]:flex-col items-start gap-2 max-[530px]:gap-3">
           <RiMapPinLine size={22} className="text-orange" />
 
           <div>
@@ -22,7 +22,7 @@ export function CompleteOrderForm() {
       </div>
 
       <div className="w-full bg-card rounded-lg p-8 flex flex-col gap-7">
-        <div className="flex items-start gap-2">
+        <div className="flex max-[530px]:flex-col items-start gap-2 max-[530px]:gap-3">
           <MdOutlineAttachMoney size={22} className="text-green" />
 
           <div>

@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Checkout() {
   return (
-    <section className="max-w-[1120px] mx-auto mt-[60px] pb-10">
-      <form className="flex justify-between gap-10">
+    <section className="h-[90px] max-w-[1120px] mx-auto px-6">
+      <form className="py-[60px] flex flex-wrap lg:flex-nowrap justify-center lg:justify-between gap-10">
         <CompleteOrderForm />
 
         <SelectedPizzas />

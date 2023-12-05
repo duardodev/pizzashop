@@ -32,7 +32,7 @@ export default function Modal() {
           <div className="bg-gray-500 bg-opacity-75 fixed inset-0 transition-opacity" />
         </Transition.Child>
 
-        <div className="w-screen fixed inset-0 z-10 overflow-y-auto">
+        <div className="w-screen mx-auto px-6 fixed inset-0 z-10 overflow-y-auto">
           <div className="min-h-full flex items-center justify-center text-center">
             <Transition.Child
               as={Fragment}
@@ -59,7 +59,7 @@ export default function Modal() {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-gray-500 leading-tight">
-                          Obrigado pelo preferência, em breve seu pedido chegará até você.
+                          Obrigado! Em breve seu pedido chegará até você.
                         </p>
                       </div>
                     </div>
@@ -71,7 +71,7 @@ export default function Modal() {
                     onClick={handleBackToHomePage}
                     ref={cancelButtonRef}
                   >
-                    Voltar para a página inicial
+                    Retornar à Home
                   </button>
                 </div>
               </Dialog.Panel>
