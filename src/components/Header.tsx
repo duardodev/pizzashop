@@ -30,21 +30,48 @@ export function Header() {
 
           <div className="flex justify-center items-center gap-14">
             <nav className="hidden sm:flex gap-9">
-              <Link href="/" className="text-title text-lg hover:text-red transition-colors">
-                Início
-              </Link>
-              <Link href="#aboutus" className="text-title text-lg hover:text-red transition-colors">
-                Sobre
-              </Link>
-              <Link href="#menu" className="text-title text-lg hover:text-red transition-colors">
-                Cardápio
-              </Link>
+              <ul>
+                <li>
+                  <Link
+                    href="/"
+                    scroll={false}
+                    className="text-title text-lg hover:text-red transition-colors"
+                  >
+                    Início
+                  </Link>
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <Link
+                    href="#aboutus"
+                    scroll={false}
+                    className="text-title text-lg hover:text-red transition-colors"
+                  >
+                    Sobre
+                  </Link>
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <Link
+                    href="#menu"
+                    scroll={false}
+                    className="text-title text-lg hover:text-red transition-colors"
+                  >
+                    Cardápio
+                  </Link>
+                </li>
+              </ul>
             </nav>
 
             {isOpen && (
               <nav className="h-[calc(100vh-90px)] w-full bg-background absolute top-[90px] left-0 right-0 sm:hidden flex flex-col items-center justify-center gap-16 transition">
                 <Link
                   href="/"
+                  scroll={false}
                   onClick={toggleNavbar}
                   className="text-title text-xl hover:text-red transition-colors"
                 >
@@ -52,6 +79,7 @@ export function Header() {
                 </Link>
                 <Link
                   href="#aboutus"
+                  scroll={false}
                   className="text-title text-xl hover:text-red transition-colors"
                   onClick={toggleNavbar}
                 >
@@ -59,6 +87,7 @@ export function Header() {
                 </Link>
                 <Link
                   href="#menu"
+                  scroll={false}
                   onClick={toggleNavbar}
                   className="text-title text-xl hover:text-red transition-colors"
                 >
