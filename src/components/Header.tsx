@@ -32,11 +32,7 @@ export function Header() {
             <nav className="hidden sm:flex gap-9">
               <ul>
                 <li>
-                  <Link
-                    href="/"
-                    scroll={false}
-                    className="text-title text-lg hover:text-red transition-colors"
-                  >
+                  <Link href="/" className="text-title text-lg hover:text-red transition-colors">
                     Início
                   </Link>
                 </li>
@@ -46,7 +42,6 @@ export function Header() {
                 <li>
                   <Link
                     href="#aboutus"
-                    scroll={false}
                     className="text-title text-lg hover:text-red transition-colors"
                   >
                     Sobre
@@ -58,7 +53,6 @@ export function Header() {
                 <li>
                   <Link
                     href="#menu"
-                    scroll={false}
                     className="text-title text-lg hover:text-red transition-colors"
                   >
                     Cardápio
@@ -69,30 +63,35 @@ export function Header() {
 
             {isOpen && (
               <nav className="h-[calc(100vh-90px)] w-full bg-background absolute top-[90px] left-0 right-0 sm:hidden flex flex-col items-center justify-center gap-16 transition">
-                <Link
-                  href="/"
-                  scroll={false}
-                  onClick={toggleNavbar}
-                  className="text-title text-xl hover:text-red transition-colors"
-                >
-                  Início
-                </Link>
-                <Link
-                  href="#aboutus"
-                  scroll={false}
-                  className="text-title text-xl hover:text-red transition-colors"
-                  onClick={toggleNavbar}
-                >
-                  Sobre
-                </Link>
-                <Link
-                  href="#menu"
-                  scroll={false}
-                  onClick={toggleNavbar}
-                  className="text-title text-xl hover:text-red transition-colors"
-                >
-                  Cardápio
-                </Link>
+                <ul>
+                  <li>
+                    <Link href="/" className="text-title text-xl hover:text-red transition-colors">
+                      Início
+                    </Link>
+                  </li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <Link
+                      href="#aboutus"
+                      className="text-title text-xl hover:text-red transition-colors"
+                    >
+                      Sobre
+                    </Link>
+                  </li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <Link
+                      href="#menu"
+                      className="text-title text-xl hover:text-red transition-colors"
+                    >
+                      Cardápio
+                    </Link>
+                  </li>
+                </ul>
               </nav>
             )}
 
