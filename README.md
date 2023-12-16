@@ -1,4 +1,4 @@
-![Preview do projeto](https://imgur.com/xcjgOTt)
+![Preview do projeto](https://i.imgur.com/ACLnp4n.png)
 
 # HotPizza
 
