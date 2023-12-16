@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Preview do projeto](https://imgur.com/xcjgOTt)
 
-## Getting Started
+# HotPizza
 
-First, run the development server:
+Aplicação que simula um sistema de delivery para pizzarias, onde o usuário pode adicionar ao carrinho de compras uma ou mais opções disponíveis no cardápio e solicitar a compra preenchendo o formulário com o endereço de entrega.
+
+## 🔥 Introdução
+
+A aplicação conta com 2 telas, sendo a primeira uma tela de apresentação e também de listagem das pizzas disponíveis, que são obtidas através do Hygraph com Fetch API. Na segunda tela, o usuário precisa preencher um formulário com seus dados de endereço, e ao lado direito, é possível visualizar os itens do carrinho, podendo alterar a quantidade ou removê-los. Por fim, quando o usuário finalizar o seu pedido, um modal será exibido com uma mensagem de agradecimento e um botão para retornar à página inicial.
+
+## 📦 Tecnologias usadas:
+
+- [React.js](https://react.dev/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Hygraph](https://hygraph.com/)
+- [Shadcn/ui](https://ui.shadcn.com/)
+- [Headless UI](https://headlessui.com/)
+
+## 🔨 Guia de instalação
+
+**Clone o projeto**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/sampaiocode/ignews.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Siga os passos abaixo**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Acesse a pasta
+$ cd hotpizza
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+# Instale as dependências
+$ yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Crie um arquivo .env.local'
+# Faça uma cópia de '.env.local.example' para '.env.local'
+# Preencha as variáveis ambiente em seguida
+$ cp .env.local.example .env.local
 
-## Learn More
+# Inicie a aplicação
+$ yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 Licença
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Desenvolvido com 💙 por [Deivit Eduardo](https://github.com/sampaiocode)
