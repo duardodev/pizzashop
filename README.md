@@ -1,10 +1,8 @@
 ![Preview do projeto](https://i.imgur.com/ACLnp4n.png)
 
-# HotPizza
+# Sobre
 
 O HotPizza é uma aplicação que simula um e-commerce de uma pizzaria online, onde o usuário pode adicionar ao carrinho de compras uma ou mais das opções disponíveis no cardápio e solicitar a compra preenchendo o formulário com o endereço de entrega.
-
-## 🔥 Introdução
 
 A aplicação conta com 2 telas, sendo a primeira uma tela de apresentação e também de listagem das pizzas disponíveis, que são obtidas através do Hygraph com Fetch API. Na segunda tela, o usuário precisa preencher um formulário com seus dados de endereço, e ao lado direito, é possível visualizar os itens do carrinho, podendo alterar a quantidade ou removê-los. Por fim, quando o usuário finalizar o seu pedido, um modal será exibido com uma mensagem de agradecimento e um botão para retornar à página inicial.
 
