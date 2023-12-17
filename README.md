@@ -21,7 +21,7 @@ A aplicação conta com 2 telas, sendo a primeira uma tela de apresentação e t
 **Clone o projeto**
 
 ```bash
-git clone https://github.com/sampaiocode/ignews.git
+git clone https://github.com/sampaiocode/hotpizza.git
 ```
 
 **Siga os passos abaixo**
