@@ -2,7 +2,7 @@
 
 # HotPizza
 
-Aplicação que simula um sistema de delivery para pizzarias, onde o usuário pode adicionar ao carrinho de compras uma ou mais opções disponíveis no cardápio e solicitar a compra preenchendo o formulário com o endereço de entrega.
+O HotPizza é uma aplicação que simula um e-commerce de uma pizzaria online, onde o usuário pode adicionar ao carrinho de compras uma ou mais das opções disponíveis no cardápio e solicitar a compra preenchendo o formulário com o endereço de entrega.
 
 ## 🔥 Introdução
 
