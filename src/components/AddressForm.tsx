@@ -1,59 +1,90 @@
+'use client';
+
+import { useFormContext } from 'react-hook-form';
+import { Input } from './Input';
+
+interface ErrorsType {
+  errors: {
+    [key: string]: {
+      message: string;
+    };
+  };
+}
+
 export function AddressForm() {
+  const { register, formState } = useFormContext();
+
+  const { errors } = formState as unknown as ErrorsType;
+
   return (
     <div className="w-full space-y-3">
-      <div className="grid grid-cols-1 gap-3">
-        <input
-          type="number"
-          className="h-[42px] max-w-full sm:max-w-[210px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="CEP"
-        />
-      </div>
+      <Input
+        type="number"
+        placeholder="CEP"
+        className="h-[42px] max-w-full sm:max-w-[210px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+        error={errors.cep?.message}
+        {...register('cep')}
+      />
 
       <div className="grid grid-cols-2 gap-3">
-        <input
+        <Input
           type="text"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           placeholder="Cidade"
+          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          error={errors.city?.message}
+          {...register('city')}
         />
 
-        <input
+        <Input
           type="text"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           placeholder="Bairro"
+          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          error={errors.neighborhood?.message}
+          {...register('neighborhood')}
         />
       </div>
 
       <div className="grid grid-cols-12 gap-3">
-        <input
+        <Input
           type="text"
-          className="h-[42px] col-span-7 sm:col-span-8 bg-button-dark  text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           placeholder="Rua"
+          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          cols="col-span-7"
+          error={errors.street?.message}
+          {...register('street')}
         />
 
-        <input
-          type="text"
-          className="h-[42px] col-span-5 sm:col-span-4 bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+        <Input
+          type="number"
           placeholder="Número"
+          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          cols="col-span-5"
+          error={errors.number?.message}
+          {...register('number')}
         />
       </div>
 
       <div className="grid grid-cols-2 gap-3">
         <input
-          type="number"
-          className="h-[42px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="Complemento"
-        />
-
-        <input
           type="text"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          placeholder="Nome"
+          placeholder="Complemento"
+          className="h-[42px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
         />
 
-        <input
-          type="number"
+        <Input
+          type="text"
+          placeholder="Nome"
           className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          {...register('name')}
+          error={errors.name?.message}
+        />
+
+        <Input
+          type="number"
           placeholder="Telefone"
+          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+          {...register('telephone')}
+          error={errors.telephone?.message}
         />
       </div>
     </div>

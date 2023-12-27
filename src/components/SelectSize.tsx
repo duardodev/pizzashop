@@ -31,7 +31,7 @@ export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
       </PopoverTrigger>
       <PopoverContent>
         <div className="flex items-center justify-between">
-          <h1 className="text-text text-lg font-semibold">Tamanho da pizza</h1>
+          <h1 className="text-lg font-semibold">Tamanho da pizza</h1>
 
           <PopoverClose className="rounded-full focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
             <Cross1Icon className="h-4 w-4 text-title hover:text-orange" />

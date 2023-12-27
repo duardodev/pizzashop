@@ -45,23 +45,23 @@ export default function Modal() {
             >
               <Dialog.Panel className="max-w-sm rounded-lg bg-white text-left flex flex-col items-center justify-end relative transform overflow-hidden shadow-xl transition-all">
                 <div className="bg-white p-6">
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-centern gap-5">
                     <div className="h-12 w-12 bg-green/20 rounded-full mx-auto flex flex-shrink-0 items-center justify-center">
                       <CheckIcon className="h-6 w-6 text-[#16a34a]" aria-hidden="true" />
                     </div>
 
-                    <div className="text-center mt-5">
-                      <Dialog.Title
-                        as="h3"
-                        className="text-gray-900 text-lg font-semibold leading-6 "
-                      >
+                    <div className="text-center space-y-2">
+                      <Dialog.Title as="h3" className="text-title text-lg font-bold leading-6">
                         Pedido finalizado
                       </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-gray-500 leading-tight">
-                          Obrigado! Em breve seu pedido chegará até você.
-                        </p>
-                      </div>
+
+                      <p className="text-text leading-tight">
+                        Obrigado! Agora é só aguardar que em breve o seu pedido chegará até você.
+                      </p>
+
+                      <p className="text-text leading-tight">
+                        Previsão de entrega: <span className="font-semibold">30 min - 45 min</span>
+                      </p>
                     </div>
                   </div>
 

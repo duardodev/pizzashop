@@ -12,9 +12,9 @@ export function CompleteOrderForm() {
         <div className="flex max-[530px]:flex-col items-start gap-2 max-[530px]:gap-3">
           <RiMapPinLine size={22} className="text-orange" />
 
-          <div>
+          <div className="space-y-1">
             <h2 className="text-title text-lg leading-tight">Endereço</h2>
-            <p className="text-text">Informe o endereço onde deseja receber seu pedido.</p>
+            <p>Forneça-nos o endereço desejado para a entrega do seu pedido.</p>
           </div>
         </div>
 
@@ -25,9 +25,9 @@ export function CompleteOrderForm() {
         <div className="flex max-[530px]:flex-col items-start gap-2 max-[530px]:gap-3">
           <MdOutlineAttachMoney size={22} className="text-green" />
 
-          <div>
+          <div className="space-y-1">
             <h2 className="text-title text-lg leading-tight">Pagamento</h2>
-            <p className="text-text">Escolha a forma que deseja pagar.</p>
+            <p>Selecione uma forma de pagamento. O pagamento é feito na entrega.</p>
           </div>
         </div>
 

@@ -1,32 +1,49 @@
+'use client';
+
+import { PaymentMethodInput } from './PaymentMethodInput';
+import { useFormContext } from 'react-hook-form';
 import { BsCash, BsCreditCard } from 'react-icons/bs';
 import { PiBankDuotone } from 'react-icons/pi';
 
+export const paymentMethods = {
+  money: {
+    method: 'Dinheiro',
+    icon: <BsCash size={17} className="text-green" />
+  },
+  credit: {
+    method: 'Cartão de crédito',
+    icon: <BsCreditCard size={17} className="text-green" />
+  },
+  debit: {
+    method: 'Cartão de débito',
+    icon: <PiBankDuotone size={19} className="text-green" />
+  }
+};
+
 export function PaymentMethodOptions() {
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext();
+
+  const paymentMethodError = errors?.paymentMethod?.message as unknown as string;
+
   return (
-    <div className="w-full flex flex-col md:flex-row gap-3">
-      <button
-        type="button"
-        className="h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
-      >
-        <BsCash size={17} className="text-green" />
-        Dinheiro
-      </button>
+    <div className="flex flex-col gap-2">
+      <div className="w-full flex flex-col md:flex-row gap-3">
+        {Object.entries(paymentMethods).map(([key, { method, icon }]) => (
+          <PaymentMethodInput
+            key={method}
+            id={key}
+            value={key}
+            method={method}
+            icon={icon}
+            {...register('paymentMethod')}
+          />
+        ))}
+      </div>
 
-      <button
-        type="button"
-        className="w-full md:w-[202px] h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
-      >
-        <BsCreditCard size={17} className="text-green" />
-        Cartão de débito
-      </button>
-
-      <button
-        type="button"
-        className="w-full md:w-[202px] h-12 bg-button-dark text-text text-sm uppercase p-4 rounded border border-solid border-button-dark outline-none flex items-center justify-center gap-3 focus:border-green focus:bg-label/20 hover:bg-label/20 transition-colors duration-300"
-      >
-        <PiBankDuotone size={19} className="text-green" />
-        Cartão de crétido
-      </button>
+      {paymentMethodError && <span className="hidden sm:block text-red">{paymentMethodError}</span>}
     </div>
   );
 }

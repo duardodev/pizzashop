@@ -1,16 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import { useCart } from '@/hooks/useCart';
 import { SelectedPizza } from './SelectedPizza';
-
 import Modal from './Modal';
 
 const deliveryPrice = 8;
 
-export function SelectedPizzas() {
-  const { cartItems, cartItemsTotal, cartQuantity, cleanCart } = useCart();
-  const [modalIsVisible, setModalIsVisible] = useState(false);
+interface SelectedPizzasProps {
+  modalIsVisible: boolean;
+}
+
+export function SelectedPizzas({ modalIsVisible }: SelectedPizzasProps) {
+  const { cartItems, cartItemsTotal, cartQuantity } = useCart();
   const cartTotal = deliveryPrice + cartItemsTotal;
 
   const formattedDeliveryPrice = deliveryPrice.toLocaleString('pt-BR', {
@@ -24,11 +25,6 @@ export function SelectedPizzas() {
   const formattedCartTotal = cartTotal.toLocaleString('pt-BR', {
     minimumFractionDigits: 2
   });
-
-  function handleFinalizeOrder() {
-    setModalIsVisible(!modalIsVisible);
-    cleanCart();
-  }
 
   return (
     <div className="w-[620px] lg:w-[420px] flex flex-col items-start gap-3">
@@ -60,7 +56,6 @@ export function SelectedPizzas() {
           type="submit"
           disabled={cartQuantity <= 0}
           className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-          onClick={handleFinalizeOrder}
         >
           Finalizar pedido
         </button>
