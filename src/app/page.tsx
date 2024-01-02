@@ -14,7 +14,7 @@ interface PizzasData {
 }
 
 export const metadata: Metadata = {
-  title: 'Home | HotPizza'
+  title: 'Home | PizzaShop'
 };
 
 export default async function Home() {

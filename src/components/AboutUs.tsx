@@ -21,7 +21,7 @@ export function AboutUs() {
             <p className="text-text lg:text-start text-lg leading-tight">
               Bem-vindo ao{' '}
               <span className="font-bold">
-                <span className="text-red">Hot</span>Pizza
+                <span className="text-red">Pizza</span>Shop
               </span>
               ! Aqui você encontra as mais deliciosas pizzas de Salvador - BA e região, entregues
               diretamente na sua porta.

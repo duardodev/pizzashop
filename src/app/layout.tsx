@@ -15,8 +15,8 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | HotPizza',
-    default: 'HotPizza'
+    template: '%s | PizzaShop',
+    default: 'PizzaShop'
   }
 };
 

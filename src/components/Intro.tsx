@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BsCreditCardFill } from 'react-icons/bs';
+import { BsCreditCard } from 'react-icons/bs';
 import { TbArrowBigDownLineFilled } from 'react-icons/tb';
 import { MdDeliveryDining } from 'react-icons/md';
 
@@ -33,16 +33,16 @@ export function Intro() {
 
           <div className="w-[220px] sm:w-full mt-4 flex flex-col sm:flex-row sm:justify-between lg:justify-normal gap-8 sm:gap-12">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 bg-green rounded-full flex items-center justify-center">
-                <BsCreditCardFill size={16} className="text-white" />
+              <div className="h-10 w-10 bg-red-light rounded-xl flex items-center justify-center">
+                <BsCreditCard size={20} className="text-red" />
               </div>
 
               <p className="text-text">Compra fácil e segura</p>
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 bg-orange rounded-full flex items-center justify-center">
-                <MdDeliveryDining size={20} className="text-white" />
+              <div className="h-10 w-10 bg-red-light rounded-xl flex items-center justify-center">
+                <MdDeliveryDining size={24} className="text-red" />
               </div>
 
               <p className="text-text">Entrega rápida e eficaz</p>

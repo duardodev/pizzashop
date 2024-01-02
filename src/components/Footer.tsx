@@ -18,11 +18,11 @@ export function Footer() {
         <div className="flex flex-col gap-10 min-[510px]:flex-row min-[510px]:justify-between min-[510px]:gap-4">
           <div className="flex flex-col justify-between gap-5">
             <Link href="/">
-              <Image src={alternativeLogoImg} height={22} alt="Logotipo alternativo do HotPizza" />
+              <Image src={alternativeLogoImg} height={24} alt="Logotipo alternativo do PizzaShop" />
             </Link>
 
             <div>
-              <p className="text-red-light ">©2023 HotPizza.</p>
+              <p className="text-red-light ">©2023 PizzaShop.</p>
               <p className="text-red-light ">Todos os direitos reservados.</p>
             </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
           <div className="flex flex-col justify-between gap-5">
             <div className="flex items-center gap-3">
               <RiMailLine size={22} className="text-red-light" />
-              <p className="text-red-light">contato@hotpizza.com</p>
+              <p className="text-red-light">contato@pizzashop.com</p>
             </div>
 
             <div className="flex items-center gap-3">
