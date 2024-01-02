@@ -8,7 +8,7 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 
-import { Cross1Icon } from '@radix-ui/react-icons';
+import { RxCross1 } from 'react-icons/rx';
 import { CgSize } from 'react-icons/cg';
 
 const sizes = ['Grande', 'Média', 'Pequena'];
@@ -34,7 +34,7 @@ export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
           <h1 className="text-lg font-semibold">Tamanho da pizza</h1>
 
           <PopoverClose className="rounded-full focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
-            <Cross1Icon className="h-4 w-4 text-title hover:text-orange" />
+            <RxCross1 className="h-4 w-4 text-title hover:text-orange" />
           </PopoverClose>
         </div>
 

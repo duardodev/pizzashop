@@ -31,6 +31,7 @@ type ConfirmOrderFormData = OrderFormData;
 export default function Checkout() {
   const { cleanCart } = useCart();
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const confirmOrderForm = useForm<ConfirmOrderFormData>({
     resolver: zodResolver(confirmOrderFormValidationSchema)
   });
@@ -38,8 +39,17 @@ export default function Checkout() {
   const { handleSubmit } = confirmOrderForm;
 
   function handleConfirmOrder() {
-    setModalIsVisible(!modalIsVisible);
-    cleanCart();
+    try {
+      setIsLoading(true);
+
+      setTimeout(() => {
+        setModalIsVisible(!modalIsVisible);
+        cleanCart();
+        setIsLoading(false);
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -50,7 +60,7 @@ export default function Checkout() {
           className="py-[60px] flex flex-wrap lg:flex-nowrap justify-center lg:justify-between gap-10"
         >
           <CompleteOrderForm />
-          <SelectedPizzas modalIsVisible={modalIsVisible} />
+          <SelectedPizzas modalIsVisible={modalIsVisible} isLoading={isLoading} />
         </form>
       </section>
     </FormProvider>

@@ -4,13 +4,16 @@ import { useCart } from '@/hooks/useCart';
 import { SelectedPizza } from './SelectedPizza';
 import Modal from './Modal';
 
+import { ImSpinner8 } from 'react-icons/im';
+
 const deliveryPrice = 8;
 
 interface SelectedPizzasProps {
   modalIsVisible: boolean;
+  isLoading: boolean;
 }
 
-export function SelectedPizzas({ modalIsVisible }: SelectedPizzasProps) {
+export function SelectedPizzas({ modalIsVisible, isLoading }: SelectedPizzasProps) {
   const { cartItems, cartItemsTotal, cartQuantity } = useCart();
   const cartTotal = deliveryPrice + cartItemsTotal;
 
@@ -52,13 +55,31 @@ export function SelectedPizzas({ modalIsVisible }: SelectedPizzasProps) {
           </div>
         </div>
 
-        <button
+        {isLoading ? (
+          <button
+            type="submit"
+            disabled={cartQuantity <= 0}
+            className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 flex items-center justify-center enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            <ImSpinner8 size={18} className="animate-spin" />
+          </button>
+        ) : (
+          <button
+            type="submit"
+            disabled={cartQuantity <= 0}
+            className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            Finalizar pedido
+          </button>
+        )}
+
+        {/* <button
           type="submit"
           disabled={cartQuantity <= 0}
           className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           Finalizar pedido
-        </button>
+        </button> */}
 
         {modalIsVisible ? <Modal /> : ''}
       </div>

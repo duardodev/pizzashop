@@ -1,10 +1,9 @@
 'use client';
 
 import { Fragment, useRef, useState } from 'react';
-
-import { Dialog, Transition } from '@headlessui/react';
-import { CheckIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { FaCheck } from 'react-icons/fa6';
 
 export default function Modal() {
   const [open, setOpen] = useState(true);
@@ -47,7 +46,7 @@ export default function Modal() {
                 <div className="bg-white p-6">
                   <div className="flex flex-col items-centern gap-5">
                     <div className="h-12 w-12 bg-green/20 rounded-full mx-auto flex flex-shrink-0 items-center justify-center">
-                      <CheckIcon className="h-6 w-6 text-[#16a34a]" aria-hidden="true" />
+                      <FaCheck className="h-6 w-6 text-[#16a34a]" aria-hidden="true" />
                     </div>
 
                     <div className="text-center space-y-2">
