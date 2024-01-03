@@ -1,4 +1,4 @@
-![Preview do projeto](https://i.imgur.com/ACLnp4n.png)
+![Preview do projeto](https://i.imgur.com/ZviXfNn.png)
 
 # Sobre
 
