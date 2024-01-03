@@ -10,7 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as zod from 'zod';
 
 const confirmOrderFormValidationSchema = zod.object({
-  cep: zod.string().min(1, 'Informe o CEP'),
+  cep: zod.string().min(8, 'O cep precisa ter 8 dígitos'),
   city: zod.string().min(1, 'Informe a cidade'),
   neighborhood: zod.string().min(1, 'Informe o bairro'),
   street: zod.string().min(1, 'Informe a rua'),
