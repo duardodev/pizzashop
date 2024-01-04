@@ -15,6 +15,10 @@ body {
   }
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #e6e5e5 inset;
+}
+
 *::-webkit-scrollbar {
   width: 8px;
 }

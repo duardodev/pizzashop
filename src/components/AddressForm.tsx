@@ -21,7 +21,7 @@ export function AddressForm() {
       <Input
         type="number"
         placeholder="CEP"
-        className="h-[42px] max-w-full sm:max-w-[210px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
+        additionalStyle="max-w-full sm:max-w-[210px] col-span-full"
         error={errors.cep?.message}
         {...register('cep')}
       />
@@ -30,7 +30,6 @@ export function AddressForm() {
         <Input
           type="text"
           placeholder="Cidade"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           error={errors.city?.message}
           {...register('city')}
         />
@@ -38,7 +37,6 @@ export function AddressForm() {
         <Input
           type="text"
           placeholder="Bairro"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           error={errors.neighborhood?.message}
           {...register('neighborhood')}
         />
@@ -48,7 +46,6 @@ export function AddressForm() {
         <Input
           type="text"
           placeholder="Rua"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           cols="col-span-7"
           error={errors.street?.message}
           {...register('street')}
@@ -57,7 +54,6 @@ export function AddressForm() {
         <Input
           type="number"
           placeholder="Número"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           cols="col-span-5"
           error={errors.number?.message}
           {...register('number')}
@@ -71,18 +67,11 @@ export function AddressForm() {
           className="h-[42px] col-span-full bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
         />
 
-        <Input
-          type="text"
-          placeholder="Nome"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
-          {...register('name')}
-          error={errors.name?.message}
-        />
+        <Input type="text" placeholder="Nome" {...register('name')} error={errors.name?.message} />
 
         <Input
           type="number"
           placeholder="Telefone"
-          className="h-[42px] bg-button-dark text-text p-3 rounded border border-solid border-button-dark outline-none focus:border-orange placeholder:text-label transition-colors"
           {...register('telephone')}
           error={errors.telephone?.message}
         />
