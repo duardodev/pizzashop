@@ -73,14 +73,6 @@ export function SelectedPizzas({ modalIsVisible, isLoading }: SelectedPizzasProp
           </button>
         )}
 
-        {/* <button
-          type="submit"
-          disabled={cartQuantity <= 0}
-          className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 enabled:hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-        >
-          Finalizar pedido
-        </button> */}
-
         {modalIsVisible ? <Modal /> : ''}
       </div>
     </div>
