@@ -19,11 +19,12 @@ export function AddressForm() {
   return (
     <div className="w-full space-y-3">
       <Input
-        type="number"
+        type="text"
         placeholder="CEP"
+        maxLength={9}
         additionalStyle="max-w-full sm:max-w-[210px] col-span-full"
-        error={errors.cep?.message}
-        {...register('cep')}
+        error={errors.zipCode?.message}
+        {...register('zipCode')}
       />
 
       <div className="grid grid-cols-2 gap-3">
@@ -70,7 +71,7 @@ export function AddressForm() {
         <Input type="text" placeholder="Nome" {...register('name')} error={errors.name?.message} />
 
         <Input
-          type="number"
+          type="text"
           placeholder="Telefone"
           {...register('telephone')}
           error={errors.telephone?.message}
