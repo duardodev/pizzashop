@@ -6,6 +6,7 @@ import { confirmOrderFormValidationSchema } from './schema';
 import { AddressProps, ConfirmOrderFormData } from './types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { zipCodeMask } from '@/utils/zip-code-mask';
+import { phoneMask } from '@/utils/phone-mask';
 
 export const useCheckout = () => {
   const { cleanCart } = useCart();
@@ -22,6 +23,7 @@ export const useCheckout = () => {
       name: '',
       neighborhood: '',
       number: '',
+      phone: '',
       paymentMethod: undefined
     }
   });
@@ -29,6 +31,7 @@ export const useCheckout = () => {
   const { handleSubmit, watch, setValue, setError } = confirmOrderForm;
 
   const zipCode = watch('zipCode');
+  const phone = watch('phone');
 
   function handleConfirmOrder() {
     try {
@@ -73,11 +76,12 @@ export const useCheckout = () => {
     const cleanedZipCode = maskedZipCode.replace(/[^0-9]/g, '');
 
     setValue('zipCode', maskedZipCode);
+    setValue('phone', phoneMask(phone));
 
     if (cleanedZipCode.length === 8 && !/[a-zA-Z]/.test(cleanedZipCode)) {
       handleFetchAddress(cleanedZipCode);
     }
-  }, [handleFetchAddress, setValue, zipCode]);
+  }, [handleFetchAddress, setValue, zipCode, phone]);
 
   return {
     confirmOrderForm,

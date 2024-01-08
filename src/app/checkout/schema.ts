@@ -8,7 +8,7 @@ export const confirmOrderFormValidationSchema = zod
     street: zod.string().min(1, 'Informe a rua'),
     number: zod.string().min(1, 'Informe o número do edifício'),
     name: zod.string().min(1, 'Informe seu nome'),
-    telephone: zod.string().min(1, 'Informe o telefone para contato'),
+    phone: zod.string().min(15, 'Informe um telefone válido'),
     paymentMethod: zod.enum(['money', 'debit', 'credit'], {
       errorMap: () => {
         return { message: 'Informe o método de pagamento' };
@@ -22,6 +22,6 @@ export const confirmOrderFormValidationSchema = zod
     street: field.street,
     number: field.number,
     name: field.name,
-    telephone: field.telephone,
+    phone: field.phone,
     paymentMethod: field.paymentMethod
   }));

@@ -73,8 +73,9 @@ export function AddressForm() {
         <Input
           type="text"
           placeholder="Telefone"
-          {...register('telephone')}
-          error={errors.telephone?.message}
+          maxLength={15}
+          {...register('phone')}
+          error={errors.phone?.message}
         />
       </div>
     </div>
