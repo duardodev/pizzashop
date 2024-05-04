@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useCart } from '@/hooks/useCart';
 
-import { confirmOrderFormValidationSchema } from './schema';
-import { AddressProps, ConfirmOrderFormData } from './types';
+import { confirmOrderFormValidationSchema, ConfirmOrderFormData } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Address } from '@/types/address';
 import { zipCodeMask } from '@/utils/zip-code-mask';
 import { phoneMask } from '@/utils/phone-mask';
 
@@ -24,8 +24,8 @@ export const useCheckout = () => {
       neighborhood: '',
       number: '',
       phone: '',
-      paymentMethod: undefined
-    }
+      paymentMethod: undefined,
+    },
   });
 
   const { handleSubmit, watch, setValue, setError } = confirmOrderForm;
@@ -48,7 +48,7 @@ export const useCheckout = () => {
   }
 
   const handleSetData = useCallback(
-    (data: AddressProps) => {
+    (data: Address) => {
       setValue('city', data.localidade);
       setValue('neighborhood', data.bairro);
       setValue('street', data.logradouro);
@@ -88,6 +88,6 @@ export const useCheckout = () => {
     handleSubmit,
     handleConfirmOrder,
     modalIsVisible,
-    isLoading
+    isLoading,
   };
 };

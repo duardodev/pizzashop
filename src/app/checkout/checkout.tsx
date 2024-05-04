@@ -3,7 +3,7 @@
 import { FormProvider } from 'react-hook-form';
 import { CompleteOrderForm } from '@/components/CompleteOrderForm';
 import { SelectedPizzas } from '@/components/SelectedPizzas';
-import { useCheckout } from './useCheckout';
+import { useCheckout } from '@/hooks/useCheckout';
 
 export default function Checkout() {
   const { confirmOrderForm, handleConfirmOrder, handleSubmit, isLoading, modalIsVisible } =
