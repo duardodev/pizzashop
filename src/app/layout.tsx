@@ -10,19 +10,19 @@ import './globals.css';
 const roboto = Roboto({
   weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
-  preload: true
+  preload: true,
 });
 
 export const metadata: Metadata = {
   title: {
     template: '%s | PizzaShop',
-    default: 'PizzaShop'
-  }
+    default: 'PizzaShop',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="!scroll-smooth">
       <body className={`${roboto.className} bg-background text-text`}>
         <NextTopLoader
           color="#EF4444"
@@ -36,7 +36,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <CartProvider>
           <Header />
-
           <main>{children}</main>
         </CartProvider>
       </body>
