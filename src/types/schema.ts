@@ -12,8 +12,8 @@ export const confirmOrderFormValidationSchema = zod
     paymentMethod: zod.enum(['money', 'debit', 'credit'], {
       errorMap: () => {
         return { message: 'Informe o método de pagamento' };
-      }
-    })
+      },
+    }),
   })
   .transform(field => ({
     zipCode: field.zipCode,
@@ -23,5 +23,8 @@ export const confirmOrderFormValidationSchema = zod
     number: field.number,
     name: field.name,
     phone: field.phone,
-    paymentMethod: field.paymentMethod
+    paymentMethod: field.paymentMethod,
   }));
+
+type OrderFormData = zod.infer<typeof confirmOrderFormValidationSchema>;
+export type ConfirmOrderFormData = OrderFormData;
