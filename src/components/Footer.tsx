@@ -8,7 +8,7 @@ import {
   RiMailLine,
   RiMapPinLine,
   RiPhoneLine,
-  RiTiktokLine
+  RiTiktokLine,
 } from 'react-icons/ri';
 
 export function Footer() {
@@ -58,7 +58,7 @@ export function Footer() {
 
             <div className="flex items-center gap-3">
               <RiPhoneLine size={22} className="text-red-light" />
-              <p className="text-red-light">75 9876-5432</p>
+              <p className="text-red-light">(75) 7575-7575</p>
             </div>
 
             <div className="flex items-center gap-3">
@@ -72,7 +72,7 @@ export function Footer() {
           <h2 className="text-red-light">
             Desenvolvido por{' '}
             <a
-              href="https://github.com/sampaiocode"
+              href="https://github.com/duardodev"
               target="_blank"
               className="font-bold hover:text-white transition-colors"
             >
