@@ -9,7 +9,7 @@ import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
 
 export function Intro() {
   return (
-    <section className="max-w-[1120px] mx-auto px-6 py-24 scroll-py-24">
+    <section className="max-w-[1120px] mx-auto px-6 pb-32 pt-48">
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
         <div className="max-w-[540px] flex items-center lg:items-start flex-col gap-7">
           <div className="space-y-3">
@@ -54,6 +54,7 @@ export function Intro() {
           src={DeliveryIllustration}
           height={390}
           width={390}
+          priority
           alt="Ilustração de entrega"
           className="hidden lg:block"
         />

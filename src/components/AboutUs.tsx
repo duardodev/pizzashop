@@ -1,6 +1,5 @@
-import pizzaMakerIllustration from '../../public/pizza-maker-illustration.svg';
-
 import Image from 'next/image';
+import pizzaMakerIllustration from '../../public/pizza-maker-illustration.svg';
 
 export function AboutUs() {
   return (
@@ -8,10 +7,11 @@ export function AboutUs() {
       <div className="flex flex-col lg:flex-row justify-between">
         <Image
           src={pizzaMakerIllustration}
-          height={340}
-          width={340}
+          height={320}
+          width={320}
+          priority
           alt="Ilustração de pizzaiolo"
-          className="hidden lg:block"
+          className="h-[330px] w-[360px] hidden lg:block"
         />
 
         <div className="w-full lg:max-w-[560px] flex flex-col gap-6">
