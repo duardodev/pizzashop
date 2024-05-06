@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { BsCreditCard } from 'react-icons/bs';
-import { TbArrowBigDownLineFilled } from 'react-icons/tb';
+import { IoArrowDownSharp } from 'react-icons/io5';
 import { MdDeliveryDining } from 'react-icons/md';
 
 import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
@@ -27,8 +27,8 @@ export function Intro() {
             href="#menu"
             className="w-52 h-12 bg-red-dark text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red transition-colors"
           >
-            <TbArrowBigDownLineFilled size={20} />
             Ver cardápio
+            <IoArrowDownSharp size={20} />
           </Link>
 
           <div className="w-[220px] sm:w-full mt-4 flex flex-col sm:flex-row sm:justify-between lg:justify-normal gap-8 sm:gap-12">
