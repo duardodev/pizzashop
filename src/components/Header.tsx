@@ -1,14 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useCart } from '@/hooks/useCart';
 import { MdArrowBack, MdShoppingCart } from 'react-icons/md';
 import { FiMenu, FiX } from 'react-icons/fi';
 
+import { links } from '@/lib/data';
 import logoImg from '../../public/logo.svg';
 
 export function Header() {
@@ -25,72 +25,42 @@ export function Header() {
       {pathname === '/' ? (
         <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
           <Link href="/">
-            <Image src={logoImg} height={24} alt="Logo do PizzaShop" />
+            <Image src={logoImg} height={24} priority={true} alt="Logo do PizzaShop" />
           </Link>
 
           <div className="flex justify-center items-center gap-14">
-            <nav className="hidden sm:flex gap-9">
-              <ul>
-                <li>
-                  <Link href="/" className="text-title text-lg hover:text-red transition-colors">
-                    Início
-                  </Link>
-                </li>
-              </ul>
-
-              <ul>
-                <li>
-                  <Link
-                    href="#aboutus"
-                    className="text-title text-lg hover:text-red transition-colors"
-                  >
-                    Sobre
-                  </Link>
-                </li>
-              </ul>
-
-              <ul>
-                <li>
-                  <Link
-                    href="#menu"
-                    className="text-title text-lg hover:text-red transition-colors"
-                  >
-                    Cardápio
-                  </Link>
-                </li>
+            <nav>
+              <ul className="hidden sm:flex gap-9">
+                {links.map(link => {
+                  return (
+                    <li key={link.hash}>
+                      <Link
+                        href={link.hash}
+                        className="text-title text-lg hover:text-red transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 
             {isOpen && (
-              <nav className="h-[calc(100vh-90px)] w-full bg-background absolute top-[90px] left-0 right-0 sm:hidden flex flex-col items-center justify-center gap-16 transition">
-                <ul>
-                  <li>
-                    <Link href="/" className="text-title text-xl hover:text-red transition-colors">
-                      Início
-                    </Link>
-                  </li>
-                </ul>
-
-                <ul>
-                  <li>
-                    <Link
-                      href="#aboutus"
-                      className="text-title text-xl hover:text-red transition-colors"
-                    >
-                      Sobre
-                    </Link>
-                  </li>
-                </ul>
-
-                <ul>
-                  <li>
-                    <Link
-                      href="#menu"
-                      className="text-title text-xl hover:text-red transition-colors"
-                    >
-                      Cardápio
-                    </Link>
-                  </li>
+              <nav className="h-[calc(100vh-90px)] sm:hidden w-full bg-background absolute top-[90px] left-0 right-0 transition">
+                <ul className="h-[calc(100vh-90px)] flex flex-col items-center justify-center gap-16">
+                  {links.map(link => {
+                    return (
+                      <li key={link.hash}>
+                        <Link
+                          href={link.hash}
+                          className="text-title text-lg hover:text-red transition-colors"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             )}
