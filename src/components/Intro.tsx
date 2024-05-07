@@ -1,62 +1,53 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-import { BsCreditCard } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { IoArrowDownSharp } from 'react-icons/io5';
-import { MdDeliveryDining } from 'react-icons/md';
 
-import DeliveryIllustration from '../../public/delivery-illustration-1.svg';
+import PizzaIllustration from '../../public/pizza-illustration.jpg';
 
 export function Intro() {
   return (
-    <section className="max-w-[1120px] mx-auto px-6 pb-32 pt-48">
-      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
-        <div className="max-w-[540px] flex items-center lg:items-start flex-col gap-7">
-          <div className="space-y-3">
+    <section className="max-w-[1120px] mx-auto px-5 pb-36 pt-48">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-14">
+        <div className="max-w-[510px] flex items-center lg:items-start flex-col gap-7">
+          <div className="space-y-4">
             <h1 className="text-title text-center lg:text-start text-[32px] min-[530px]:text-4xl font-extrabold leading-tight">
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
-              <span className="text-red">conforto</span> <br /> da sua casa!
+              <span className="text-red">conforto</span> da sua casa!
             </h1>
-            <p className="text-text text-center lg:text-start text-lg leading-snug">
+
+            <p className="max-w-[328px] min-[440px]:max-w-[480px] mx-auto lg:max-w-full text-text text-center lg:text-start text-lg leading-snug">
               Com o nosso serviço de entrega você recebe sua pizza onde estiver, a qualquer hora e
               ainda quentinha!
             </p>
           </div>
 
-          <Link
-            href="#menu"
-            className="w-52 h-12 bg-red-dark text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red transition-colors"
-          >
-            Ver cardápio
-            <IoArrowDownSharp size={20} />
-          </Link>
+          <div className="pb-3 flex flex-col min-[530px]:flex-row gap-y-5 gap-x-6">
+            <Link
+              href="#menu"
+              className="w-52 h-12 bg-red text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red-dark transition-colors"
+            >
+              Ver cardápio
+              <IoArrowDownSharp size={20} />
+            </Link>
 
-          <div className="w-[220px] sm:w-full mt-4 flex flex-col sm:flex-row sm:justify-between lg:justify-normal gap-8 sm:gap-12">
-            <div className="flex items-center gap-2">
-              <div className="h-10 w-10 bg-red-light rounded-xl flex items-center justify-center">
-                <BsCreditCard size={20} className="text-red" />
-              </div>
-
-              <p className="text-text">Compra fácil e segura</p>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="h-10 w-10 bg-red-light rounded-xl flex items-center justify-center">
-                <MdDeliveryDining size={24} className="text-red" />
-              </div>
-
-              <p className="text-text">Entrega rápida e eficaz</p>
-            </div>
+            <Link
+              href="/"
+              className="w-52 h-12 bg-transparent border border-orange text-orange hover:text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-orange transition-colors duration-300"
+            >
+              Entrar em contato
+              <BsWhatsapp size={18} />
+            </Link>
           </div>
         </div>
 
         <Image
-          src={DeliveryIllustration}
-          height={390}
-          width={390}
-          priority
+          src={PizzaIllustration}
+          height={0}
+          width={0}
+          priority={true}
           alt="Ilustração de entrega"
-          className="hidden lg:block"
+          className="w-[440px] h-auto hidden min-[530px]:block rounded-xl"
         />
       </div>
     </section>
