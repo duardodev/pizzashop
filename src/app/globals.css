@@ -14,21 +14,3 @@ body {
     margin: 0;
   }
 }
-
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px #e6e5e5 inset;
-}
-
-*::-webkit-scrollbar {
-  width: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #e6e5e5;
-  border-radius: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #ef4444;
-  border-radius: 5px;
-}
