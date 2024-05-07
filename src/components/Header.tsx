@@ -30,7 +30,7 @@ export function Header() {
 
           <div className="flex justify-center items-center gap-14">
             <nav>
-              <ul className="hidden sm:flex gap-9">
+              <ul className="hidden md:flex gap-9">
                 {links.map(link => {
                   return (
                     <li key={link.hash}>
@@ -47,7 +47,7 @@ export function Header() {
             </nav>
 
             {isOpen && (
-              <nav className="h-[calc(100vh-90px)] sm:hidden w-full bg-background absolute top-[90px] left-0 right-0 transition">
+              <nav className="h-[calc(100vh-90px)] md:hidden w-full bg-background absolute top-[90px] left-0 right-0 transition">
                 <ul className="h-[calc(100vh-90px)] flex flex-col items-center justify-center gap-16">
                   {links.map(link => {
                     return (
@@ -64,32 +64,32 @@ export function Header() {
                 </ul>
               </nav>
             )}
+          </div>
 
-            <div className="flex gap-4">
-              <button
-                onClick={toggleNavbar}
-                className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center sm:hidden"
-              >
-                {isOpen ? (
-                  <FiX size={24} className="text-orange" />
-                ) : (
-                  <FiMenu size={24} className="text-orange" />
-                )}
-              </button>
+          <div className="flex gap-4">
+            <button
+              onClick={toggleNavbar}
+              className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center md:hidden"
+            >
+              {isOpen ? (
+                <FiX size={24} className="text-orange" />
+              ) : (
+                <FiMenu size={24} className="text-orange" />
+              )}
+            </button>
 
-              <Link
-                href="/checkout"
-                className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
-              >
-                {cartQuantity >= 1 && (
-                  <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-                    {cartQuantity}
-                  </span>
-                )}
+            <Link
+              href="/checkout"
+              className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative"
+            >
+              {cartQuantity >= 1 && (
+                <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
+                  {cartQuantity}
+                </span>
+              )}
 
-                <MdShoppingCart size={24} className="text-orange" />
-              </Link>
-            </div>
+              <MdShoppingCart size={24} className="text-orange" />
+            </Link>
           </div>
         </div>
       ) : (
