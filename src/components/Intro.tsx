@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 import { IoArrowDownSharp } from 'react-icons/io5';
 
-import PizzaIllustration from '../../public/pizza-illustration.jpg';
+import pizzaImage from '../../public/pizza-image.jpg';
 
 export function Intro() {
   return (
     <section className="max-w-[1120px] mx-auto px-5 pb-36 pt-48">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-14">
-        <div className="max-w-[510px] flex items-center lg:items-start flex-col gap-7">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-x-14 gap-y-12">
+        <div className="max-w-[350px] min-[440px]:max-w-[500px] flex items-center lg:items-start flex-col gap-7">
           <div className="space-y-4">
             <h1 className="text-title text-center lg:text-start text-[32px] min-[530px]:text-4xl font-extrabold leading-tight">
               Saboreie a <span className="text-red">melhor pizza</span> da região sem sair do{' '}
@@ -42,12 +42,12 @@ export function Intro() {
         </div>
 
         <Image
-          src={PizzaIllustration}
-          height={0}
-          width={0}
-          priority={true}
-          alt="Ilustração de entrega"
-          className="w-[440px] h-auto hidden min-[530px]:block rounded-xl"
+          src={pizzaImage}
+          width={440}
+          height={293.56}
+          priority
+          alt="Imagem de pizza"
+          className="w-[320px] min-[530px]:w-[440px] h-auto rounded-xl"
         />
       </div>
     </section>

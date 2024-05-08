@@ -25,7 +25,13 @@ export function Header() {
       {pathname === '/' ? (
         <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
           <Link href="/">
-            <Image src={logoImg} height={24} priority={true} alt="Logo do PizzaShop" />
+            <Image
+              src={logoImg}
+              width={130}
+              height={23.39}
+              alt="Logo do PizzaShop"
+              className="w-[130px] h-auto"
+            />
           </Link>
 
           <div className="flex justify-center items-center gap-14">

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import pizzaIllustration from '../../public/pizza-illustration-2.jpg';
+import secondaryPizzaImage from '../../public/pizza-image-2.jpg';
 import { RiInstagramLine, RiFacebookCircleLine, RiTiktokLine } from 'react-icons/ri';
 
 export function AboutUs() {
@@ -7,11 +7,10 @@ export function AboutUs() {
     <section id="aboutus" className="bgscroll-mt-16">
       <div className="max-w-[1120px] mx-auto px-5 py-24 flex justify-between gap-14">
         <Image
-          src={pizzaIllustration}
-          height={0}
-          width={0}
-          priority={true}
-          alt="Ilustração de pizzaiolo"
+          src={secondaryPizzaImage}
+          width={330}
+          height={440}
+          alt="Imagem de pizza e ingredientes"
           className="w-[330px] h-auto hidden md:block object-cover order-last lg:order-first rounded-xl"
         />
 
