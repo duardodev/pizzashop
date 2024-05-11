@@ -10,7 +10,7 @@ export default function Checkout() {
     useCheckout();
   return (
     <FormProvider {...confirmOrderForm}>
-      <section className="h-[90px] max-w-[1120px] mx-auto px-6">
+      <section className="h-[90px] max-w-[1120px] mx-auto pt-24 px-6">
         <form
           onSubmit={handleSubmit(handleConfirmOrder)}
           className="py-[60px] flex flex-wrap lg:flex-nowrap justify-center lg:justify-between gap-10"
