@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Pizza } from '@/types/pizza';
 import { produce } from 'immer';
 
@@ -28,7 +28,13 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem('pizzashop:cartItems');
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems);
+    }
+    return [];
+  });
 
   const cartQuantity = cartItems.length;
 
@@ -103,6 +109,10 @@ export function CartProvider({ children }: CartProviderProps) {
     setCartItems([]);
   }
 
+  useEffect(() => {
+    localStorage.setItem('pizzashop:cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
   return (
     <CartContext.Provider
       value={{
@@ -113,7 +123,7 @@ export function CartProvider({ children }: CartProviderProps) {
         removeCartItem,
         changeCartItemSize,
         cartItemsTotal,
-        cleanCart
+        cleanCart,
       }}
     >
       {children}
