@@ -7,6 +7,7 @@ import { useCart } from '@/hooks/useCart';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
 import { Pizza } from '@/types/pizza';
+import { toast } from 'sonner';
 
 interface PizzaCardProps {
   pizza: Pizza;
@@ -48,6 +49,15 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
   }
 
   function handleAddToCart() {
+    toast.success('Pizza adicionada ao carrinho!', {
+      duration: 1400,
+      style: {
+        background: '#FFFFFF',
+        fontSize: '16px',
+        fontFamily: 'unset',
+      },
+    });
+
     const pizzaToAdd = {
       ...pizza,
       quantity,

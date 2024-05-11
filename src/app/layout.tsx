@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { CartProvider } from '@/contexts/CartContext';
+import { Toaster } from 'sonner';
 
 import NextTopLoader from 'nextjs-toploader';
 import { Roboto_Flex as Roboto } from 'next/font/google';
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartProvider>
           <Header />
           <main>{children}</main>
+          <Toaster position="top-center" richColors />
         </CartProvider>
       </body>
     </html>
