@@ -28,13 +28,7 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    const storedCartItems = localStorage.getItem('pizzashop:cartItems');
-    if (storedCartItems) {
-      return JSON.parse(storedCartItems);
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const cartQuantity = cartItems.length;
 
@@ -110,7 +104,12 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   useEffect(() => {
-    localStorage.setItem('pizzashop:cartItems', JSON.stringify(cartItems));
+    const storedCartItems = window.localStorage.getItem('pizzashop:cartItems');
+    setCartItems(storedCartItems ? JSON.parse(storedCartItems) : []);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('pizzashop:cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
