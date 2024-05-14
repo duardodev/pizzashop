@@ -1,20 +1,45 @@
+'use client';
+
 import Image from 'next/image';
 import secondaryPizzaImage from '../../public/pizza-image-2.jpg';
 import { RiInstagramLine, RiFacebookCircleLine, RiTiktokLine } from 'react-icons/ri';
+import { motion } from 'framer-motion';
+import { useMediaQuery } from 'usehooks-ts';
 
 export function AboutUs() {
-  return (
-    <section id="aboutus" className="bgscroll-mt-16">
-      <div className="max-w-[1120px] mx-auto px-5 py-24 flex justify-between gap-14">
-        <Image
-          src={secondaryPizzaImage}
-          width={330}
-          height={440}
-          alt="Imagem de pizza e ingredientes"
-          className="w-[330px] h-auto hidden md:block object-cover order-last lg:order-first rounded-xl"
-        />
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
-        <div className="w-full lg:max-w-[580px] flex flex-col gap-8">
+  return (
+    <section id="aboutus" className="scroll-mt-16">
+      <div className="max-w-[1120px] mx-auto px-5 py-28 flex justify-between gap-14">
+        <motion.div
+          initial={{ opacity: 0, x: isDesktop ? -100 : 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{
+            once: true,
+          }}
+          className="lg:w-[330px] min-w-[330px] h-auto hidden md:block order-last lg:order-first rounded-xl"
+        >
+          <Image
+            src={secondaryPizzaImage}
+            width={330}
+            height={440}
+            priority
+            alt="Imagem de pizza e ingredientes"
+            className="w-auto h-full object-cover rounded-xl"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: isDesktop ? 100 : -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{
+            once: true,
+          }}
+          className="w-full lg:max-w-[580px] flex flex-col gap-8"
+        >
           <h1 className="text-title text-[32px] leading-none font-extrabold">Sobre nós</h1>
 
           <div className="space-y-5">
@@ -59,7 +84,7 @@ export function AboutUs() {
               <RiTiktokLine size={24} className="text-red hover:text-red-dark transition-colors" />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
