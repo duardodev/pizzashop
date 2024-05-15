@@ -31,7 +31,7 @@ export function Menu({ pizzas }: MenuProps) {
                 key={pizza.slug}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.25, ease: 'easeInOut' }}
+                transition={{ duration: 0.4, delay: (i % 3) * 0.25, ease: 'easeInOut' }}
                 viewport={{
                   once: true,
                 }}
