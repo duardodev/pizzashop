@@ -6,7 +6,9 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/hooks/useCart';
 import { motion } from 'framer-motion';
+import { SelectedPizzas } from './SelectedPizzas';
 
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { MdArrowBack, MdShoppingCart } from 'react-icons/md';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { links } from '@/lib/data';
@@ -90,18 +92,22 @@ export function Header() {
               )}
             </button>
 
-            <Link
-              href="/checkout"
-              className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative"
-            >
-              {cartQuantity >= 1 && (
-                <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-                  {cartQuantity}
-                </span>
-              )}
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
+                  {cartQuantity >= 1 && (
+                    <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
+                      {cartQuantity}
+                    </span>
+                  )}
 
-              <MdShoppingCart size={24} className="text-orange" />
-            </Link>
+                  <MdShoppingCart size={24} className="text-orange" />
+                </button>
+              </SheetTrigger>
+              <SheetContent className="w-[350px] lg:w-[480px] lg:max-w-[480px]">
+                <SelectedPizzas />
+              </SheetContent>
+            </Sheet>
           </div>
         </motion.div>
       ) : (
@@ -114,17 +120,22 @@ export function Header() {
             <Image src={logoImg} height={24} alt="Logo do PizzaShop" />
           </Link>
 
-          <Link
-            href="/checkout"
-            className="h-9 w-9 bg-orange-light p-2 rounded-md hover:opacity-75 transition-opacity flex items-center justify-center relative"
-          >
-            {cartQuantity >= 1 && (
-              <span className="h-5 w-5 bg-orange text-white text-xs font-bold rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-                {cartQuantity}
-              </span>
-            )}
-            <MdShoppingCart size={24} className="text-orange" />
-          </Link>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
+                {cartQuantity >= 1 && (
+                  <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
+                    {cartQuantity}
+                  </span>
+                )}
+
+                <MdShoppingCart size={24} className="text-orange" />
+              </button>
+            </SheetTrigger>
+            <SheetContent className="w-[350px] lg:w-[480px] lg:max-w-[480px]">
+              <SelectedPizzas />
+            </SheetContent>
+          </Sheet>
         </div>
       )}
     </header>
