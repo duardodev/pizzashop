@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { MdOutlineRemoveCircleOutline } from 'react-icons/md';
+import { HiOutlineTrash } from 'react-icons/hi';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
 
@@ -18,7 +18,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
   const pizzaTotal = pizza.price * pizza.quantity;
 
   const formattedPrice = pizzaTotal.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2
+    minimumFractionDigits: 2,
   });
 
   function handleIncrease() {
@@ -39,9 +39,9 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
   return (
     <div className="w-full pb-6 border-b border-label/20 flex items-start gap-5">
-      <Image src={pizza.image.url} height={72} width={72} alt="Imagem de uma pizza" />
+      <Image src={pizza.image.url} height={80} width={80} alt="Imagem de uma pizza" />
 
-      <div className="w-full flex flex-col gap-3">
+      <div className="w-full flex flex-col gap-2.5">
         <div className="flex justify-between gap-3">
           <h2 className="text-lg text-title">{pizza.title}</h2>
 
@@ -49,7 +49,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
             <h2 className="font-semibold">R$ {formattedPrice}</h2>
 
             <button type="button">
-              <MdOutlineRemoveCircleOutline
+              <HiOutlineTrash
                 size={18}
                 onClick={handleRemove}
                 className="text-red hover:text-red/70 transition-colors"
