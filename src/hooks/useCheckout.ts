@@ -76,12 +76,15 @@ export const useCheckout = () => {
     const cleanedZipCode = maskedZipCode.replace(/[^0-9]/g, '');
 
     setValue('zipCode', maskedZipCode);
-    setValue('phone', phoneMask(phone));
 
     if (cleanedZipCode.length === 8 && !/[a-zA-Z]/.test(cleanedZipCode)) {
       handleFetchAddress(cleanedZipCode);
     }
-  }, [handleFetchAddress, setValue, zipCode, phone]);
+  }, [handleFetchAddress, setValue, zipCode]);
+
+  useEffect(() => {
+    setValue('phone', phoneMask(phone));
+  }, [setValue, phone]);
 
   return {
     confirmOrderForm,
