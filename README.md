@@ -20,32 +20,6 @@ A aplicação conta com duas telas responsivas, sendo a primeira uma tela de apr
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [Headless UI](https://headlessui.com/)
 
-## 🔨 Guia de instalação
-
-**Clone o projeto**
-
-```bash
-git clone https://github.com/sampaiocode/pizzashop.git
-```
-
-**Siga os passos abaixo**
-
-```bash
-# Acesse a pasta
-$ cd pizzashop
-
-# Instale as dependências
-$ yarn
-
-# Crie um arquivo .env.local'
-# Faça uma cópia de '.env.local.example' para '.env.local'
-# Preencha as variáveis ambiente em seguida
-$ cp .env.local.example .env.local
-
-# Inicie a aplicação
-$ yarn dev
-```
-
 ## 📄 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
