@@ -42,11 +42,11 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
       <Image src={pizza.image.url} height={80} width={80} alt="Imagem de uma pizza" />
 
       <div className="w-full flex flex-col gap-2.5">
-        <div className="flex justify-between gap-3">
+        <div className="w-full flex flex-wrap justify-between gap-2.5">
           <h2 className="text-lg text-title">{pizza.title}</h2>
 
           <div className="flex items-center gap-2">
-            <h2 className="font-semibold">R$ {formattedPrice}</h2>
+            <h2 className="font-semibold leading-none">R$ {formattedPrice}</h2>
 
             <button type="button">
               <HiOutlineTrash

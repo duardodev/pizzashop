@@ -4,19 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { useCart } from '@/hooks/useCart';
 import { motion } from 'framer-motion';
-import { SelectedPizzas } from './SelectedPizzas';
+import { Cart } from './Cart';
 
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { MdArrowBack, MdShoppingCart } from 'react-icons/md';
+import { MdArrowBack } from 'react-icons/md';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { links } from '@/lib/data';
 import logoImg from '../../public/logo.svg';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const { cartQuantity } = useCart();
   const pathname = usePathname();
 
   function toggleNavbar() {
@@ -92,22 +89,7 @@ export function Header() {
               )}
             </button>
 
-            <Sheet>
-              <SheetTrigger asChild>
-                <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
-                  {cartQuantity >= 1 && (
-                    <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-                      {cartQuantity}
-                    </span>
-                  )}
-
-                  <MdShoppingCart size={24} className="text-orange" />
-                </button>
-              </SheetTrigger>
-              <SheetContent className="w-[350px] lg:w-[480px] lg:max-w-[480px]">
-                <SelectedPizzas />
-              </SheetContent>
-            </Sheet>
+            <Cart />
           </div>
         </motion.div>
       ) : (
@@ -120,22 +102,7 @@ export function Header() {
             <Image src={logoImg} height={24} alt="Logo do PizzaShop" />
           </Link>
 
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
-                {cartQuantity >= 1 && (
-                  <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-                    {cartQuantity}
-                  </span>
-                )}
-
-                <MdShoppingCart size={24} className="text-orange" />
-              </button>
-            </SheetTrigger>
-            <SheetContent className="w-[350px] lg:w-[480px] lg:max-w-[480px]">
-              <SelectedPizzas />
-            </SheetContent>
-          </Sheet>
+          <Cart />
         </div>
       )}
     </header>
