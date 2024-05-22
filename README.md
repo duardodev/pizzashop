@@ -6,7 +6,7 @@ O PizzaShop é uma aplicação que simula uma loja virtual para uma pizzaria. Te
 
 A aplicação conta com duas telas responsivas, sendo a primeira uma tela de apresentação e listagem das pizzas, que são obtidas por meio do <strong>Hygraph</strong>. Na segunda tela, encontra-se o formulário, cuja validação foi feita com o <strong>React Hook Form</strong> em conjunto com o <strong>Zod</strong>, e através da <strong>API ViaCep</strong>, três dos campos desse formulário são preenchidos automaticamente com base no CEP informado.
 
-## 📦 Tecnologias usadas:
+## ⚙️ Tecnologias usadas:
 
 - [React.js](https://react.dev/)
 - [Next.js](https://nextjs.org/)
@@ -20,10 +20,6 @@ A aplicação conta com duas telas responsivas, sendo a primeira uma tela de apr
 - [Shadcn/ui](https://ui.shadcn.com/)
 - [Headless UI](https://headlessui.com/)
 
-## 📄 Licença
-
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
-
 ---
 
-Desenvolvido com 💙 por [Deivit Eduardo](https://github.com/sampaiocode)
+Desenvolvido com 💙 por Deivit Eduardo
