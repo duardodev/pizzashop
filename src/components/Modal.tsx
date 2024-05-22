@@ -70,7 +70,7 @@ export default function Modal() {
                     onClick={handleBackToHomePage}
                     ref={cancelButtonRef}
                   >
-                    Retornar à Home
+                    Retornar à página inicial
                   </button>
                 </div>
               </Dialog.Panel>
