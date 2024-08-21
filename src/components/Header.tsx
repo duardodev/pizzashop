@@ -4,11 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { Cart } from './Cart';
-
 import { MdArrowBack } from 'react-icons/md';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { Cart } from './Cart';
 import { links } from '@/lib/data';
 import logoImg from '../../public/logo.svg';
 
@@ -23,20 +21,9 @@ export function Header() {
   return (
     <header className="h-[90px] w-full bg-background border-b border-red-border fixed top-0 left-0 z-10">
       {pathname === '/' ? (
-        <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between"
-        >
+        <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
           <Link href="/">
-            <Image
-              src={logoImg}
-              width={130}
-              height={23.39}
-              alt="Logo do PizzaShop"
-              className="w-[130px] h-auto"
-            />
+            <Image src={logoImg} priority width={130} height={23.39} alt="Logo do PizzaShop" className="w-[130px] h-auto" />
           </Link>
 
           <div className="flex justify-center items-center gap-14">
@@ -45,10 +32,7 @@ export function Header() {
                 {links.map(link => {
                   return (
                     <li key={link.hash}>
-                      <Link
-                        href={link.hash}
-                        className="text-title text-lg hover:text-red transition-colors"
-                      >
+                      <Link href={link.hash} className="text-title text-lg hover:text-red transition-colors">
                         {link.name}
                       </Link>
                     </li>
@@ -63,10 +47,7 @@ export function Header() {
                   {links.map(link => {
                     return (
                       <li key={link.hash}>
-                        <Link
-                          href={link.hash}
-                          className="text-title text-lg hover:text-red transition-colors"
-                        >
+                        <Link href={link.hash} className="text-title text-lg hover:text-red transition-colors">
                           {link.name}
                         </Link>
                       </li>
@@ -82,16 +63,12 @@ export function Header() {
               onClick={toggleNavbar}
               className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center md:hidden"
             >
-              {isOpen ? (
-                <FiX size={24} className="text-orange" />
-              ) : (
-                <FiMenu size={24} className="text-orange" />
-              )}
+              {isOpen ? <FiX size={24} className="text-orange" /> : <FiMenu size={24} className="text-orange" />}
             </button>
 
             <Cart />
           </div>
-        </motion.div>
+        </div>
       ) : (
         <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
           <Link href="/">
