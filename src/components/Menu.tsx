@@ -1,33 +1,8 @@
-import { Pizza } from '@/types/pizza';
 import { PizzaCard } from './PizzaCard';
-import { fetchHygraphQuery } from '@/utils/fetch-hygraph-query';
-
-interface PizzasData {
-  pizzas: Pizza[];
-}
+import { useFetchPizzas } from '@/hooks/useFetchPizzas';
 
 export async function Menu() {
-  const getPizzasData = async (): Promise<PizzasData> => {
-    const query = `
-      query PizzasQuery {
-        pizzas {
-          title
-          description
-          slug
-          minimumPrice
-          mediumPrice
-          maximumPrice
-          image {
-            url
-          }
-        }
-      }
-    `;
-
-    return fetchHygraphQuery(query);
-  };
-
-  const { pizzas } = await getPizzasData();
+  const pizzas = await useFetchPizzas();
 
   return (
     <section id="menu" className="max-w-[1120px] mx-auto px-5 py-28 scroll-mt-16">
