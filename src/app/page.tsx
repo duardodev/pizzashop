@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Home | PizzaShop',
 };
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Intro />
