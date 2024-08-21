@@ -39,16 +39,14 @@ export function Intro() {
           </div>
         </div>
 
-        <div className="origin-center">
-          <Image
-            src={pizzaImage}
-            width={440}
-            height={293.56}
-            priority
-            alt="Imagem de pizza"
-            className="w-[320px] min-[530px]:w-[440px] h-auto rounded-xl"
-          />
-        </div>
+        <Image
+          src={pizzaImage}
+          width={400}
+          height={293.33}
+          alt="Ilustração da pizza"
+          className="h-auto w-80 min-[530px]:w-[440px] rounded-xl"
+          priority
+        />
       </div>
     </section>
   );

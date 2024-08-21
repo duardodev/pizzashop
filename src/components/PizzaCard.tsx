@@ -70,7 +70,9 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
 
   return (
     <div className="w-[310px] max-[340px]:w-[280px] max-[310px]:w-[250px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
-      <Image src={pizza.image.url} width={185} height={185} priority alt="" className="-mt-14" />
+      <div className="w-[180px] h-[180px] -mt-14 relative">
+        <Image src={pizza.image.url} priority fill sizes="35vw" alt={`Imagem de uma pizza de ${pizza.title}`} className="w-full h-auto" />
+      </div>
 
       <div className="w-full flex flex-col gap-4">
         <div className="h-[78px] flex flex-col items-center gap-2">
@@ -86,12 +88,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
           </p>
 
           <div className="flex items-center gap-2">
-            <QuantityInput
-              quantity={quantity}
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-            />
-
+            <QuantityInput quantity={quantity} onIncrease={handleIncrease} onDecrease={handleDecrease} />
             <SelectSize onSizeChange={handleSizeChange} size={size} />
           </div>
         </div>

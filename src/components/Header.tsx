@@ -22,8 +22,8 @@ export function Header() {
     <header className="h-[90px] w-full bg-background border-b border-red-border fixed top-0 left-0 z-10">
       {pathname === '/' ? (
         <div className="h-[90px] max-w-[1120px] mx-auto px-6 flex items-center justify-between">
-          <Link href="/">
-            <Image src={logoImg} priority width={130} height={23.39} alt="Logo do PizzaShop" className="w-[130px] h-auto" />
+          <Link href="/" as={'image'}>
+            <Image src={logoImg} priority alt="Logo do PizzaShop" width={128} className="w-32 h-full" />
           </Link>
 
           <div className="flex justify-center items-center gap-14">
@@ -76,7 +76,7 @@ export function Header() {
           </Link>
 
           <Link href="/">
-            <Image src={logoImg} height={24} alt="Logo do PizzaShop" />
+            <Image src={logoImg} alt="Logo do PizzaShop" width={128} className="w-32 h-full" />
           </Link>
 
           <Cart />
