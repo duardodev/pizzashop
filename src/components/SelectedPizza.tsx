@@ -38,12 +38,14 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
   }
 
   return (
-    <div className="w-full pb-6 border-b border-label/20 flex items-start gap-5">
-      <Image src={pizza.image.url} priority height={80} width={80} alt={`Imagem da pizza de ${pizza.title}`} className="h-full w-20" />
+    <div className="w-full pb-6 border-b border-label/20 flex items-center justify-between gap-5">
+      <div className="w-36 h-24 relative">
+        <Image src={pizza.image.url} fill sizes="35vw" alt={`Imagem da pizza de ${pizza.title}`} />
+      </div>
 
-      <div className="w-full flex flex-col gap-2.5">
+      <div className="w-full flex flex-col gap-3">
         <div className="w-full flex flex-wrap justify-between gap-2.5">
-          <h2 className="text-lg text-title">{pizza.title}</h2>
+          <h2 className="text-lg leading-none text-title">{pizza.title}</h2>
 
           <div className="flex items-center gap-2">
             <h2 className="font-semibold leading-none">R$ {formattedPrice}</h2>
