@@ -23,7 +23,7 @@ export function Intro() {
           <div className="pb-3 flex flex-col min-[530px]:flex-row gap-y-5 gap-x-6">
             <Link
               href="#menu"
-              className="w-52 h-12 bg-red text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-red-dark transition-colors"
+              className="w-52 h-12 bg-red text-white text-sm font-bold uppercase p-3 rounded-lg flex items-center justify-center gap-3 hover:bg-red/90 transition-colors"
             >
               Ver cardápio
               <IoArrowDownSharp size={20} />
@@ -31,7 +31,7 @@ export function Intro() {
 
             <Link
               href="/"
-              className="w-52 h-12 bg-transparent border border-orange text-orange hover:text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-orange transition-colors duration-300"
+              className="w-52 h-12 text-white hover:bg-orange/90 text-sm font-bold uppercase p-3 rounded-lg flex items-center justify-center gap-3 bg-orange transition-colors duration-300"
             >
               Entrar em contato
               <BsWhatsapp size={18} />
@@ -44,7 +44,7 @@ export function Intro() {
           width={400}
           height={293.33}
           alt="Ilustração da pizza"
-          className="h-auto w-80 min-[530px]:w-[440px] rounded-xl"
+          className="h-auto w-80 min-[530px]:w-[440px] rounded-lg"
           priority
         />
       </div>
