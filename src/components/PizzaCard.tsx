@@ -76,7 +76,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
           priority
           quality={100}
           width={192}
-          height={192}
+          height={208}
           sizes="35vw"
           alt={`Imagem de uma pizza de ${pizza.title}`}
           className="w-48 h-full"
@@ -100,7 +100,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
             {formattedPrice}
           </p>
 
-          <div className="flex items-center gap-2">
+          <div className="mt-1 flex items-center gap-2">
             <QuantityInput quantity={quantity} onIncrease={handleIncrease} onDecrease={handleDecrease} />
             <SelectSize onSizeChange={handleSizeChange} size={size} />
           </div>
