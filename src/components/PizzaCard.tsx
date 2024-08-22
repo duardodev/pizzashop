@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-
 import { useState } from 'react';
-import { useCart } from '@/hooks/useCart';
+import { toast } from 'sonner';
+import { Plus } from 'lucide-react';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
+import { useCart } from '@/hooks/useCart';
 import { Pizza } from '@/types/pizza';
-import { toast } from 'sonner';
 
 interface PizzaCardProps {
   pizza: Pizza;
@@ -69,17 +69,30 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
   }
 
   return (
-    <div className="w-[310px] max-[340px]:w-[280px] max-[310px]:w-[250px] bg-card p-5 border-b-4 border-red border-solid rounded-t-2xl rounded-b-lg flex flex-col items-center gap-6">
-      <div className="w-[180px] h-[180px] -mt-14 relative">
-        <Image src={pizza.image.url} priority fill sizes="35vw" alt={`Imagem de uma pizza de ${pizza.title}`} className="w-full h-auto" />
+    <div className="w-[250px] min-[310px]:w-[280px] flex flex-col items-center gap-3">
+      <div className="h-64 w-full relative bg-orange-light/70 p-6 rounded-lg flex justify-center">
+        <Image
+          src={pizza.image.url}
+          priority
+          quality={100}
+          width={192}
+          height={192}
+          sizes="35vw"
+          alt={`Imagem de uma pizza de ${pizza.title}`}
+          className="w-48 h-full"
+        />
+
+        <button
+          onClick={handleAddToCart}
+          className="bg-red-dark text-white text-sm font-bold uppercase p-1 rounded-full hover:bg-red transition-colors absolute -top-2 -right-2"
+        >
+          <Plus size={22} />
+        </button>
       </div>
 
-      <div className="w-full flex flex-col gap-4">
-        <div className="h-[78px] flex flex-col items-center gap-2">
-          <h1 className="text-title text-xl font-extrabold leading-tight">{pizza.title}</h1>
-
-          <p className="text-label text-center leading-tight">{pizza.description}</p>
-        </div>
+      <div className="w-full flex flex-col gap-3">
+        <h1 className="text-title text-center text-xl font-extrabold leading-tight">{pizza.title}</h1>
+        <p className="text-label text-center leading-tight">{pizza.description}</p>
 
         <div className="flex justify-between items-center">
           <p className="text-text text-xl font-extrabold leading-tight">
@@ -92,13 +105,6 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
             <SelectSize onSizeChange={handleSizeChange} size={size} />
           </div>
         </div>
-
-        <button
-          onClick={handleAddToCart}
-          className="bg-red-dark text-white text-sm font-bold uppercase px-2 py-2.5 rounded-md hover:bg-red transition-colors"
-        >
-          Adicionar ao carrinho
-        </button>
       </div>
     </div>
   );
