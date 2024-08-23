@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import secondaryPizzaImage from '../../public/pizza-image-2.jpg';
 import { RiInstagramLine, RiFacebookCircleLine, RiTiktokLine } from 'react-icons/ri';
+import { SocialMediaLinks } from './social-media-links';
 
 export function AboutUs() {
   return (
@@ -20,7 +21,7 @@ export function AboutUs() {
         <div className="w-full lg:max-w-[580px] flex flex-col gap-8">
           <h1 className="text-title text-[32px] leading-none font-extrabold">Sobre nós</h1>
 
-          <div className="space-y-5">
+          <div className="space-y-5 mb-3">
             <p className="text-text lg:text-start text-lg leading-tight">
               Bem-vindo ao{' '}
               <span className="font-bold">
@@ -40,19 +41,7 @@ export function AboutUs() {
             </p>
           </div>
 
-          <div className="mt-3 flex gap-6">
-            <a href="/">
-              <RiInstagramLine size={24} className="text-red hover:text-red-dark transition-colors" />
-            </a>
-
-            <a href="/">
-              <RiFacebookCircleLine size={24} className="text-red hover:text-red-dark transition-colors" />
-            </a>
-
-            <a href="/">
-              <RiTiktokLine size={24} className="text-red hover:text-red-dark transition-colors" />
-            </a>
-          </div>
+          <SocialMediaLinks />
         </div>
       </div>
     </section>
