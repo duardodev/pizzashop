@@ -8,6 +8,7 @@ import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
 import { useCart } from '@/hooks/useCart';
 import { Pizza } from '@/types/pizza';
+import { cn } from '@/lib/utils';
 
 interface PizzaCardProps {
   pizza: Pizza;
@@ -92,9 +93,9 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
 
       <div className="w-full flex flex-col gap-3">
         <h1 className="text-title text-center text-xl font-extrabold leading-tight">{pizza.title}</h1>
-        <p className="text-label text-center leading-tight">{pizza.description}</p>
+        <p className="w-64 text-label text-center leading-tight">{pizza.description}</p>
 
-        <div className="flex justify-between items-center">
+        <div className={cn('flex justify-between items-center', pizza.title === 'Muçarela' && 'mt-5')}>
           <p className="text-text text-xl font-extrabold leading-tight">
             <span className="text-sm font-normal">R$ {''}</span>
             {formattedPrice}
