@@ -23,10 +23,8 @@ export function SelectedPizzas() {
   });
 
   return (
-    <div className="w-full h-full flex flex-col justify-between gap-10">
+    <div className="w-full h-[90%] flex flex-col justify-between gap-10">
       <div className="flex flex-col gap-8">
-        <h1 className="text-title text-xl font-extrabold">Pizzas selecionadas</h1>
-
         {cartQuantity >= 1 ? (
           <>
             <div className="max-h-[380px] overflow-y-auto space-y-8">
