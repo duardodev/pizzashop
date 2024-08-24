@@ -42,7 +42,7 @@ export default function Modal() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-4"
             >
-              <Dialog.Panel className="max-w-sm rounded-lg bg-white text-left flex flex-col items-center justify-end relative transform overflow-hidden shadow-xl transition-all">
+              <Dialog.Panel className="max-w-md rounded-lg bg-white text-left flex flex-col items-center justify-end relative transform overflow-hidden shadow-xl transition-all">
                 <div className="bg-white p-6">
                   <div className="flex flex-col items-centern gap-5">
                     <div className="h-12 w-12 bg-green/20 rounded-full mx-auto flex flex-shrink-0 items-center justify-center">
@@ -55,18 +55,14 @@ export default function Modal() {
                       </Dialog.Title>
 
                       <p className="text-text leading-tight">
-                        Obrigado! Agora é só aguardar que em breve o seu pedido chegará até você.
-                      </p>
-
-                      <p className="text-text leading-tight">
-                        Previsão de entrega: <span className="font-semibold">30 min - 45 min</span>
+                        Obrigado pela preferência! Já recebemos seu pedido, um entregador está à caminho do seu endereço.
                       </p>
                     </div>
                   </div>
 
                   <button
                     type="button"
-                    className="w-full bg-orange text-white mt-5 px-3 py-2 font-semibold rounded-md justify-center hover:bg-orange/70"
+                    className="w-full bg-orange text-white mt-5 px-3 py-2 font-semibold rounded-md justify-center hover:bg-orange/70 transition-colors duration-300"
                     onClick={handleBackToHomePage}
                     ref={cancelButtonRef}
                   >
