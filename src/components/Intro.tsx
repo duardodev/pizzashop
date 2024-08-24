@@ -31,7 +31,7 @@ export function Intro() {
 
             <Link
               href="/"
-              className="w-52 h-12 text-white hover:bg-orange/90 text-sm font-bold uppercase p-3 rounded-lg flex items-center justify-center gap-3 bg-orange transition-colors duration-300"
+              className="w-52 h-12 bg-transparent border border-orange text-orange hover:text-white text-sm font-bold uppercase p-3 rounded-md flex items-center justify-center gap-3 hover:bg-orange transition-colors duration-300"
             >
               Entrar em contato
               <BsWhatsapp size={18} />
