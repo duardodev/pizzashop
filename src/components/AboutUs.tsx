@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import secondaryPizzaImage from '../../public/pizza-image-2.jpg';
-import { RiInstagramLine, RiFacebookCircleLine, RiTiktokLine } from 'react-icons/ri';
 import { SocialMediaLinks } from './social-media-links';
 
 export function AboutUs() {
