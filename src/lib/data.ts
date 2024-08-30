@@ -12,3 +12,5 @@ export const links = [
     hash: '#menu',
   },
 ] as const;
+
+export const sizes = ['Grande', 'Média', 'Pequena'];

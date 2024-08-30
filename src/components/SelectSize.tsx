@@ -1,17 +1,9 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  PopoverClose,
-  PopoverArrow
-} from '@/components/ui/popover';
+import { Popover, PopoverContent, PopoverTrigger, PopoverClose, PopoverArrow } from '@/components/ui/popover';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-
-import { RxCross1 } from 'react-icons/rx';
+import { sizes } from '@/lib/data';
 import { CgSize } from 'react-icons/cg';
-
-const sizes = ['Grande', 'Média', 'Pequena'];
+import { RxCross1 } from 'react-icons/rx';
 
 interface SelectSizeProps {
   onSizeChange: (selectedSize: string) => void;
@@ -22,10 +14,7 @@ export function SelectSize({ onSizeChange, size }: SelectSizeProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button
-          aria-label="Select Size"
-          className="bg-orange p-2 rounded-md flex justify-center items-center"
-        >
+        <button aria-label="Select Size" className="bg-orange p-2 rounded-md flex justify-center items-center">
           <CgSize size={20} className="text-white" />
         </button>
       </PopoverTrigger>

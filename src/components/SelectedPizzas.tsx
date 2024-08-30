@@ -1,37 +1,29 @@
 'use client';
 
-import { useCart } from '@/hooks/useCart';
-import { SelectedPizza } from './SelectedPizza';
 import Link from 'next/link';
-
-const deliveryPrice = 8;
+import { useMemo } from 'react';
+import { SelectedPizza } from './SelectedPizza';
+import { useCart } from '@/hooks/useCart';
+import { formatCurrency } from '@/utils/format-currency';
 
 export function SelectedPizzas() {
-  const { cartItems, cartItemsTotal, cartQuantity } = useCart();
-  const cartTotal = deliveryPrice + cartItemsTotal;
-
-  const formattedDeliveryPrice = deliveryPrice.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
-
-  const formattedItemsTotal = cartItemsTotal.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
-
-  const formattedCartTotal = cartTotal.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
+  const { pizzasFromTheCart, totalOfPizzasInTheCart, cartQuantity } = useCart();
+  const cartTotal = 8.5 + totalOfPizzasInTheCart;
+  const formattedDeliveryPrice = formatCurrency(8.5);
+  const formattedItemsTotal = useMemo(() => formatCurrency(totalOfPizzasInTheCart), [totalOfPizzasInTheCart]);
+  const formattedCartTotal = useMemo(() => formatCurrency(cartTotal), [cartTotal]);
 
   return (
-    <div className="w-full h-[90%] flex flex-col justify-between gap-10">
-      <div className="flex flex-col gap-8">
-        {cartQuantity >= 1 ? (
-          <>
+    <>
+      {cartQuantity >= 1 ? (
+        <div className="w-full h-[90%] flex flex-col justify-between gap-10">
+          <div className="flex flex-col gap-8">
             <div className="max-h-[380px] overflow-y-auto space-y-8">
-              {cartItems.map(item => {
+              {pizzasFromTheCart.map(item => {
                 return <SelectedPizza key={item.slug} pizza={item} />;
               })}
             </div>
+
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
                 <p>Entrega</p>
@@ -48,20 +40,18 @@ export function SelectedPizzas() {
                 <p className="font-bold">R$ {formattedCartTotal}</p>
               </div>
             </div>
-          </>
-        ) : (
-          <p className="text-center">Nenhuma pizza selecionada.</p>
-        )}
-      </div>
-
-      {cartQuantity >= 1 && (
-        <Link
-          href="/checkout"
-          className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 flex items-center justify-center hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-        >
-          Confirmar perdido
-        </Link>
+          </div>
+          <Link
+            href="/checkout"
+            aria-label="Confirmar pedido"
+            className="h-11 bg-red text-white text-sm font-bold uppercase rounded-md py-3 px-2 flex items-center justify-center hover:bg-red-dark transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            Confirmar pedido
+          </Link>
+        </div>
+      ) : (
+        <p className="text-center">Nenhuma pizza selecionada.</p>
       )}
-    </div>
+    </>
   );
 }

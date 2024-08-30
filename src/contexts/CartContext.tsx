@@ -1,23 +1,23 @@
 'use client';
 
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useReducer } from 'react';
+import { ActionTypes, cartReducer } from '@/reducers/cart';
 import { Pizza } from '@/types/pizza';
-import { produce } from 'immer';
 
-export interface CartItem extends Pizza {
+export interface PizzaFromTheCart extends Pizza {
   quantity: number;
   price: number;
   size: string;
 }
 
 interface CartContextType {
-  cartItems: CartItem[];
+  pizzasFromTheCart: PizzaFromTheCart[];
   cartQuantity: number;
-  cartItemsTotal: number;
-  addPizzaToCart: (pizza: CartItem) => void;
-  removeCartItem: (cartItemSlug: string) => void;
-  changeCartItemQuantity: (cartItemSlug: string, type: 'increase' | 'decrease') => void;
-  changeCartItemSize: (cartItemSlug: string, selectedSize: string) => void;
+  totalOfPizzasInTheCart: number;
+  addPizza: (pizza: PizzaFromTheCart) => void;
+  removePizza: (pizzaFromTheCartSlug: string) => void;
+  changePizzaQuantity: (pizzaFromTheCartSlug: string, type: 'increase' | 'decrease') => void;
+  changePizzaSize: (pizzaFromTheCartSlug: string, size: string) => void;
   cleanCart: () => void;
 }
 
@@ -28,100 +28,54 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-  const cartQuantity = cartItems.length;
-
-  const cartItemsTotal = cartItems.reduce((total, cartItem) => {
-    return total + cartItem.price * cartItem.quantity;
+  const [pizzasFromTheCart, dispatch] = useReducer(cartReducer, []);
+  const cartQuantity = pizzasFromTheCart.length;
+  const totalOfPizzasInTheCart = pizzasFromTheCart.reduce((total, pizzaFromTheCart) => {
+    return total + pizzaFromTheCart.price * pizzaFromTheCart.quantity;
   }, 0);
 
-  function addPizzaToCart(pizza: CartItem) {
-    const pizzaAlreadyExistsInCart = cartItems.findIndex(cartItem => cartItem.slug === pizza.slug);
-
-    const newCart = produce(cartItems, draft => {
-      if (pizzaAlreadyExistsInCart < 0) {
-        draft.push(pizza);
-      } else {
-        draft[pizzaAlreadyExistsInCart].quantity += pizza.quantity;
-      }
-    });
-
-    setCartItems(newCart);
+  function addPizza(pizza: PizzaFromTheCart) {
+    dispatch({ type: ActionTypes.ADD_PIZZA, payload: pizza });
   }
 
-  function changeCartItemQuantity(cartItemSlug: string, type: 'increase' | 'decrease') {
-    const newCart = produce(cartItems, draft => {
-      const pizzaExistsInCart = cartItems.findIndex(cartItem => cartItem.slug === cartItemSlug);
-
-      if (pizzaExistsInCart >= 0) {
-        const item = draft[pizzaExistsInCart];
-
-        draft[pizzaExistsInCart].quantity =
-          type === 'increase' ? item.quantity + 1 : item.quantity - 1;
-      }
-    });
-
-    setCartItems(newCart);
+  function changePizzaQuantity(slug: string, type: 'increase' | 'decrease') {
+    dispatch({ type: ActionTypes.CHANGE_QUANTITY, payload: { slug, type } });
   }
 
-  function removeCartItem(cartItemSlug: string) {
-    const newCart = produce(cartItems, draft => {
-      const pizzaExistsInCart = cartItems.findIndex(cartItem => cartItem.slug === cartItemSlug);
-
-      if (pizzaExistsInCart >= 0) {
-        draft.splice(pizzaExistsInCart, 1);
-      }
-    });
-
-    setCartItems(newCart);
+  function removePizza(slug: string) {
+    dispatch({ type: ActionTypes.REMOVE_PIZZA, payload: slug });
   }
 
-  function changeCartItemSize(cartItemSlug: string, selectedSize: string) {
-    const newCart = produce(cartItems, draft => {
-      const pizzaExistsInCart = cartItems.findIndex(cartItem => cartItem.slug === cartItemSlug);
-
-      if (pizzaExistsInCart >= 0) {
-        const item = draft[pizzaExistsInCart];
-
-        item.size = selectedSize;
-
-        if (selectedSize === 'Grande') {
-          item.price = item.maximumPrice;
-        } else if (selectedSize === 'Média') {
-          item.price = item.mediumPrice;
-        } else if (selectedSize === 'Pequena') {
-          item.price = item.minimumPrice;
-        }
-      }
-    });
-
-    setCartItems(newCart);
+  function changePizzaSize(slug: string, size: string) {
+    dispatch({ type: ActionTypes.CHANGE_SIZE, payload: { slug, size } });
   }
 
   function cleanCart() {
-    setCartItems([]);
+    dispatch({ type: ActionTypes.CLEAN_CART });
   }
 
   useEffect(() => {
-    const storedCartItems = window.localStorage.getItem('pizzashop:cartItems');
-    setCartItems(storedCartItems ? JSON.parse(storedCartItems) : []);
-  }, []);
+    window.localStorage.setItem('pizzashop:pizzasFromTheCart', JSON.stringify(pizzasFromTheCart));
+  }, [pizzasFromTheCart]);
 
   useEffect(() => {
-    window.localStorage.setItem('pizzashop:cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+    const pizzasFromTheCartStored = window.localStorage.getItem('pizzashop:pizzasFromTheCart');
+
+    if (pizzasFromTheCartStored) {
+      dispatch({ type: ActionTypes.INITIALIZE_CART, payload: JSON.parse(pizzasFromTheCartStored) });
+    }
+  }, []);
 
   return (
     <CartContext.Provider
       value={{
-        cartItems,
-        addPizzaToCart,
+        pizzasFromTheCart,
         cartQuantity,
-        changeCartItemQuantity,
-        removeCartItem,
-        changeCartItemSize,
-        cartItemsTotal,
+        totalOfPizzasInTheCart,
+        addPizza,
+        changePizzaQuantity,
+        removePizza,
+        changePizzaSize,
         cleanCart,
       }}
     >

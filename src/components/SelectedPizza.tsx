@@ -1,40 +1,36 @@
 'use client';
 
 import Image from 'next/image';
-
 import { HiOutlineTrash } from 'react-icons/hi';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
-
-import { CartItem } from '../contexts/CartContext';
+import { PizzaFromTheCart } from '../contexts/CartContext';
 import { useCart } from '@/hooks/useCart';
+import { formatCurrency } from '@/utils/format-currency';
 
 interface SelectedPizzaProps {
-  pizza: CartItem;
+  pizza: PizzaFromTheCart;
 }
 
 export function SelectedPizza({ pizza }: SelectedPizzaProps) {
-  const { changeCartItemQuantity, removeCartItem, changeCartItemSize } = useCart();
+  const { changePizzaQuantity, changePizzaSize, removePizza } = useCart();
   const pizzaTotal = pizza.price * pizza.quantity;
-
-  const formattedPrice = pizzaTotal.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
+  const formattedPrice = formatCurrency(pizzaTotal);
 
   function handleIncrease() {
-    changeCartItemQuantity(pizza.slug, 'increase');
+    changePizzaQuantity(pizza.slug, 'increase');
   }
 
   function handleDecrease() {
-    changeCartItemQuantity(pizza.slug, 'decrease');
+    changePizzaQuantity(pizza.slug, 'decrease');
   }
 
   function handleRemove() {
-    removeCartItem(pizza.slug);
+    removePizza(pizza.slug);
   }
 
-  function handleSizeChange(selectedSize: string) {
-    changeCartItemSize(pizza.slug, selectedSize);
+  function handleSizeChange(size: string) {
+    changePizzaSize(pizza.slug, size);
   }
 
   return (
@@ -58,7 +54,6 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
         <div className="flex items-center gap-2">
           <QuantityInput quantity={pizza.quantity} onIncrease={handleIncrease} onDecrease={handleDecrease} />
-
           <SelectSize size={pizza.size} onSizeChange={handleSizeChange} />
         </div>
       </div>

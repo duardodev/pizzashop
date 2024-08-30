@@ -1,30 +1,28 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { toast } from 'sonner';
-import { Plus } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
 import { useCart } from '@/hooks/useCart';
+import { formatCurrency } from '@/utils/format-currency';
 import { Pizza } from '@/types/pizza';
+import { sizes } from '@/lib/data';
 import { cn } from '@/lib/utils';
+import { Plus } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface PizzaCardProps {
   pizza: Pizza;
 }
 
-const sizes = ['Grande', 'Média', 'Pequena'];
-
 export function PizzaCard({ pizza }: PizzaCardProps) {
-  const { addPizzaToCart } = useCart();
+  const { addPizza } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState(sizes[1]);
   const [price, setPrice] = useState(pizza.mediumPrice);
 
-  const formattedPrice = price.toLocaleString('pt-BR', {
-    minimumFractionDigits: 2,
-  });
+  const formattedPrice = useMemo(() => formatCurrency(price), [price]);
 
   function handleIncrease() {
     setQuantity(quantity => quantity + 1);
@@ -37,12 +35,18 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
   function handleSizeChange(selectedSize: string) {
     let pizzaPrice = 0;
 
-    if (selectedSize === sizes[0]) {
-      pizzaPrice = pizza.maximumPrice;
-    } else if (selectedSize === sizes[1]) {
-      pizzaPrice = pizza.mediumPrice;
-    } else if (selectedSize === sizes[2]) {
-      pizzaPrice = pizza.minimumPrice;
+    switch (selectedSize) {
+      case sizes[0]:
+        pizzaPrice = pizza.maximumPrice;
+        break;
+      case sizes[1]:
+        pizzaPrice = pizza.mediumPrice;
+        break;
+      case sizes[2]:
+        pizzaPrice = pizza.minimumPrice;
+        break;
+      default:
+        pizzaPrice = pizza.mediumPrice;
     }
 
     setSize(selectedSize);
@@ -66,7 +70,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
       size,
     };
 
-    addPizzaToCart(pizzaToAdd);
+    addPizza(pizzaToAdd);
   }
 
   return (
