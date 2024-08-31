@@ -10,6 +10,7 @@ import {
   SheetTrigger,
 } from './ui/sheet';
 import { SelectedPizzasList } from './SelectedPizzasList';
+import { PricingDetails } from './PricingDetails';
 import { useCart } from '@/hooks/useCart';
 import { MdShoppingCart } from 'react-icons/md';
 
@@ -39,6 +40,7 @@ export function Cart() {
           <div className="w-full h-[90%] flex flex-col justify-between gap-10">
             <div className="flex flex-col gap-8">
               <SelectedPizzasList />
+              <PricingDetails />
             </div>
 
             <Link
