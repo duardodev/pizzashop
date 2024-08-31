@@ -1,77 +1,27 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
 import { QuantityInput } from './QuantityInput';
 import { SelectSize } from './SelectSize';
-import { useCart } from '@/hooks/useCart';
-import { formatCurrency } from '@/utils/format-currency';
+import { usePizzaCard } from '@/hooks/usePizzaCard';
 import { Pizza } from '@/types/pizza';
-import { sizes } from '@/lib/data';
-import { cn } from '@/lib/utils';
 import { Plus } from 'lucide-react';
-import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
 
 interface PizzaCardProps {
   pizza: Pizza;
 }
 
 export function PizzaCard({ pizza }: PizzaCardProps) {
-  const { addPizza } = useCart();
-  const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState(sizes[1]);
-  const [price, setPrice] = useState(pizza.mediumPrice);
-
-  const formattedPrice = useMemo(() => formatCurrency(price), [price]);
-
-  function handleIncrease() {
-    setQuantity(quantity => quantity + 1);
-  }
-
-  function handleDecrease() {
-    setQuantity(quantity => quantity - 1);
-  }
-
-  function handleSizeChange(selectedSize: string) {
-    let pizzaPrice = 0;
-
-    switch (selectedSize) {
-      case sizes[0]:
-        pizzaPrice = pizza.maximumPrice;
-        break;
-      case sizes[1]:
-        pizzaPrice = pizza.mediumPrice;
-        break;
-      case sizes[2]:
-        pizzaPrice = pizza.minimumPrice;
-        break;
-      default:
-        pizzaPrice = pizza.mediumPrice;
-    }
-
-    setSize(selectedSize);
-    setPrice(pizzaPrice);
-  }
-
-  function handleAddToCart() {
-    toast.success('Pizza adicionada ao carrinho!', {
-      duration: 1400,
-      style: {
-        background: '#FFFFFF',
-        fontSize: '16px',
-        fontFamily: 'unset',
-      },
-    });
-
-    const pizzaToAdd = {
-      ...pizza,
-      quantity,
-      price,
-      size,
-    };
-
-    addPizza(pizzaToAdd);
-  }
+  const {
+    quantity,
+    formattedPrice,
+    size,
+    handleAddToCart,
+    handleDecrease,
+    handleIncrease,
+    handleSizeChange,
+  } = usePizzaCard({ pizza });
 
   return (
     <div className="w-[250px] min-[310px]:w-[280px] flex flex-col items-center gap-3">
@@ -96,17 +46,25 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
       </div>
 
       <div className="w-full flex flex-col gap-3">
-        <h1 className="text-title text-center text-xl font-extrabold leading-tight">{pizza.title}</h1>
+        <h1 className="text-title text-center text-xl font-extrabold leading-tight">
+          {pizza.title}
+        </h1>
         <p className="w-64 text-label text-center leading-tight">{pizza.description}</p>
 
-        <div className={cn('flex justify-between items-center', pizza.title === 'Muçarela' && 'mt-5')}>
+        <div
+          className={cn('flex justify-between items-center', pizza.title === 'Muçarela' && 'mt-5')}
+        >
           <p className="text-text text-xl font-extrabold leading-tight">
             <span className="text-sm font-normal">R$ {''}</span>
             {formattedPrice}
           </p>
 
           <div className="mt-1 flex items-center gap-2">
-            <QuantityInput quantity={quantity} onIncrease={handleIncrease} onDecrease={handleDecrease} />
+            <QuantityInput
+              quantity={quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+            />
             <SelectSize onSizeChange={handleSizeChange} size={size} />
           </div>
         </div>
