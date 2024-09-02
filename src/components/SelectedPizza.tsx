@@ -1,12 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import { HiOutlineTrash } from 'react-icons/hi';
-import { QuantityInput } from './QuantityInput';
-import { SelectSize } from './SelectSize';
 import { PizzaFromTheCart } from '../contexts/CartContext';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/utils/format-currency';
+import { RemovePizzaButton } from './RemovePizzaButton';
 import { PizzaImage } from './PizzaImage';
 import { PizzaControls } from './PizzaControls';
 
@@ -15,9 +12,8 @@ interface SelectedPizzaProps {
 }
 
 export function SelectedPizza({ pizza }: SelectedPizzaProps) {
-  const { changePizzaQuantity, changePizzaSize, removePizza } = useCart();
-  const pizzaTotal = pizza.price * pizza.quantity;
-  const formattedPrice = formatCurrency(pizzaTotal);
+  const { changePizzaQuantity, changePizzaSize } = useCart();
+  const formattedPrice = formatCurrency(pizza.price);
 
   function handleIncrease() {
     changePizzaQuantity(pizza.slug, 'increase');
@@ -25,10 +21,6 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
   function handleDecrease() {
     changePizzaQuantity(pizza.slug, 'decrease');
-  }
-
-  function handleRemove() {
-    removePizza(pizza.slug);
   }
 
   function handleSizeChange(size: string) {
@@ -47,10 +39,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
           <div className="flex items-center gap-2">
             <h2 className="font-semibold leading-none">R$ {formattedPrice}</h2>
-
-            <button type="button">
-              <HiOutlineTrash size={18} onClick={handleRemove} className="text-red hover:text-red/70 transition-colors" />
-            </button>
+            <RemovePizzaButton slug={pizza.slug} title={pizza.title} />
           </div>
         </div>
 
