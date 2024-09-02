@@ -8,6 +8,7 @@ import { PizzaFromTheCart } from '../contexts/CartContext';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/utils/format-currency';
 import { PizzaImage } from './PizzaImage';
+import { PizzaControls } from './PizzaControls';
 
 interface SelectedPizzaProps {
   pizza: PizzaFromTheCart;
@@ -53,10 +54,13 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <QuantityInput quantity={pizza.quantity} onIncrease={handleIncrease} onDecrease={handleDecrease} />
-          <SelectSize size={pizza.size} onSizeChange={handleSizeChange} />
-        </div>
+        <PizzaControls
+          quantity={pizza.quantity}
+          size={pizza.size}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+          onSizeChange={handleSizeChange}
+        />
       </div>
     </div>
   );
