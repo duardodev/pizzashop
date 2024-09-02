@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { PizzaControls } from './PizzaControls';
 import { AddPizzaButton } from './AddPizzaButton';
+import { PizzaImage } from './PizzaImage';
 import { usePizzaCard } from '@/hooks/usePizzaCard';
 import { Pizza } from '@/types/pizza';
 import { cn } from '@/lib/utils';
@@ -25,14 +25,12 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
   return (
     <div className="w-[250px] min-[310px]:w-[280px] flex flex-col items-center gap-3">
       <div className="h-64 w-full relative bg-orange-light/70 p-6 rounded-lg flex justify-center">
-        <Image
-          src={pizza.image.url}
+        <PizzaImage
           priority
-          quality={100}
+          url={pizza.image.url}
+          title={pizza.title}
           width={192}
           height={208}
-          sizes="35vw"
-          alt={`Imagem de uma pizza de ${pizza.title}`}
           className="w-48 h-full"
         />
 

@@ -7,6 +7,7 @@ import { SelectSize } from './SelectSize';
 import { PizzaFromTheCart } from '../contexts/CartContext';
 import { useCart } from '@/hooks/useCart';
 import { formatCurrency } from '@/utils/format-currency';
+import { PizzaImage } from './PizzaImage';
 
 interface SelectedPizzaProps {
   pizza: PizzaFromTheCart;
@@ -36,7 +37,7 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
   return (
     <div className="w-full pb-6 border-b border-label/20 flex items-center justify-between gap-5">
       <div className="w-36 h-24 relative">
-        <Image src={pizza.image.url} fill sizes="35vw" alt={`Imagem da pizza de ${pizza.title}`} />
+        <PizzaImage fill url={pizza.image.url} title={pizza.title} className="w-48 h-full" />
       </div>
 
       <div className="w-full flex flex-col gap-3">
