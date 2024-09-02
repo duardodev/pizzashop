@@ -1,11 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { QuantityInput } from './QuantityInput';
-import { SelectSize } from './SelectSize';
+import { PizzaControls } from './PizzaControls';
+import { AddPizzaButton } from './AddPizzaButton';
 import { usePizzaCard } from '@/hooks/usePizzaCard';
 import { Pizza } from '@/types/pizza';
-import { Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface PizzaCardProps {
@@ -17,7 +16,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
     quantity,
     formattedPrice,
     size,
-    handleAddToCart,
+    price,
     handleDecrease,
     handleIncrease,
     handleSizeChange,
@@ -37,12 +36,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
           className="w-48 h-full"
         />
 
-        <button
-          onClick={handleAddToCart}
-          className="bg-red-dark text-white text-sm font-bold uppercase p-1 rounded-full hover:bg-red transition-colors absolute -top-2 -right-2"
-        >
-          <Plus size={22} />
-        </button>
+        <AddPizzaButton pizza={pizza} quantity={quantity} price={price} size={size} />
       </div>
 
       <div className="w-full flex flex-col gap-3">
@@ -59,14 +53,13 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
             {formattedPrice}
           </p>
 
-          <div className="mt-1 flex items-center gap-2">
-            <QuantityInput
-              quantity={quantity}
-              onIncrease={handleIncrease}
-              onDecrease={handleDecrease}
-            />
-            <SelectSize onSizeChange={handleSizeChange} size={size} />
-          </div>
+          <PizzaControls
+            quantity={quantity}
+            size={size}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            onSizeChange={handleSizeChange}
+          />
         </div>
       </div>
     </div>
