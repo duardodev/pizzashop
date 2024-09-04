@@ -28,7 +28,10 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [pizzasFromTheCart, dispatch] = useReducer(cartReducer, []);
+  const [pizzasFromTheCart, dispatch] = useReducer(cartReducer, [], () => {
+    return JSON.parse(localStorage.getItem('pizzashop:pizzasFromTheCart')!);
+  });
+
   const cartQuantity = pizzasFromTheCart.length;
   const totalOfPizzasInTheCart = pizzasFromTheCart.reduce((total, pizzaFromTheCart) => {
     return total + pizzaFromTheCart.price * pizzaFromTheCart.quantity;
@@ -55,16 +58,8 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   useEffect(() => {
-    window.localStorage.setItem('pizzashop:pizzasFromTheCart', JSON.stringify(pizzasFromTheCart));
+    localStorage.setItem('pizzashop:pizzasFromTheCart', JSON.stringify(pizzasFromTheCart));
   }, [pizzasFromTheCart]);
-
-  useEffect(() => {
-    const pizzasFromTheCartStored = window.localStorage.getItem('pizzashop:pizzasFromTheCart');
-
-    if (pizzasFromTheCartStored) {
-      dispatch({ type: ActionTypes.INITIALIZE_CART, payload: JSON.parse(pizzasFromTheCartStored) });
-    }
-  }, []);
 
   return (
     <CartContext.Provider
