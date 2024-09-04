@@ -30,8 +30,11 @@ export const CartContext = createContext({} as CartContextType);
 export function CartProvider({ children }: CartProviderProps) {
   const [pizzasFromTheCart, dispatch] = useReducer(cartReducer, [], () => {
     if (typeof window !== 'undefined') {
-      return JSON.parse(localStorage.getItem('pizzashop:pizzasFromTheCart')!);
+      const storedPizzas = localStorage.getItem('pizzashop:pizzasFromTheCart');
+      return storedPizzas ? JSON.parse(storedPizzas) : [];
     }
+
+    return [];
   });
 
   const cartQuantity = pizzasFromTheCart.length;

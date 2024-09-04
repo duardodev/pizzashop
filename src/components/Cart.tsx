@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import {
   Sheet,
@@ -14,6 +15,10 @@ import { PricingDetails } from './PricingDetails';
 import { useCart } from '@/hooks/useCart';
 import { MdShoppingCart } from 'react-icons/md';
 
+const CartQuantity = dynamic(() => import('./CartQuantity').then(mod => mod.CartQuantity), {
+  ssr: false,
+});
+
 export function Cart() {
   const { cartQuantity } = useCart();
 
@@ -22,14 +27,10 @@ export function Cart() {
       <SheetTrigger asChild>
         <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
           <MdShoppingCart size={24} className="text-orange" />
-
-          {cartQuantity >= 1 && (
-            <span className="h-5 w-5 bg-orange text-white text-xs font-bold  rounded-full absolute -top-2 -right-[8.345px] flex items-center justify-center">
-              {cartQuantity}
-            </span>
-          )}
+          <CartQuantity />
         </button>
       </SheetTrigger>
+
       <SheetContent className="w-full min-[400px]:w-[360px] lg:w-[460px] lg:max-w-[460px]">
         <SheetHeader>
           <SheetTitle>Pizzas selecionadas</SheetTitle>
