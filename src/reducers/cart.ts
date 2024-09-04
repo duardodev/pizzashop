@@ -6,7 +6,6 @@ export enum ActionTypes {
   CHANGE_QUANTITY = 'CHANGE_QUANTITY',
   CHANGE_SIZE = 'CHANGE_SIZE',
   REMOVE_PIZZA = 'REMOVE_PIZZA',
-  INITIALIZE_CART = 'INITIALIZE_CART',
   CLEAN_CART = 'CLEAN_CART',
 }
 
@@ -15,14 +14,15 @@ type Action =
   | { type: ActionTypes.CHANGE_QUANTITY; payload: { slug: string; type: 'increase' | 'decrease' } }
   | { type: ActionTypes.CHANGE_SIZE; payload: { slug: string; size: string } }
   | { type: ActionTypes.REMOVE_PIZZA; payload: string }
-  | { type: ActionTypes.INITIALIZE_CART; payload: PizzaFromTheCart[] }
   | { type: ActionTypes.CLEAN_CART };
 
 export function cartReducer(state: PizzaFromTheCart[], action: Action) {
   return produce(state, draft => {
     switch (action.type) {
       case ActionTypes.ADD_PIZZA: {
-        const pizzaAlreadyExistsInCart = state.findIndex(pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug);
+        const pizzaAlreadyExistsInCart = state.findIndex(
+          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+        );
 
         if (pizzaAlreadyExistsInCart < 0) {
           draft.push(action.payload);
@@ -33,18 +33,23 @@ export function cartReducer(state: PizzaFromTheCart[], action: Action) {
         break;
       }
       case ActionTypes.CHANGE_QUANTITY: {
-        const pizzaExistsInCart = state.findIndex(pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug);
+        const pizzaExistsInCart = state.findIndex(
+          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+        );
 
         if (pizzaExistsInCart >= 0) {
           const pizza = state[pizzaExistsInCart];
 
-          draft[pizzaExistsInCart].quantity = action.payload.type === 'increase' ? pizza.quantity + 1 : pizza.quantity - 1;
+          draft[pizzaExistsInCart].quantity =
+            action.payload.type === 'increase' ? pizza.quantity + 1 : pizza.quantity - 1;
         }
 
         break;
       }
       case ActionTypes.CHANGE_SIZE: {
-        const pizzaExistsInCart = state.findIndex(pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug);
+        const pizzaExistsInCart = state.findIndex(
+          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+        );
 
         if (pizzaExistsInCart >= 0) {
           const pizza = draft[pizzaExistsInCart];
@@ -67,16 +72,15 @@ export function cartReducer(state: PizzaFromTheCart[], action: Action) {
         break;
       }
       case ActionTypes.REMOVE_PIZZA: {
-        const pizzaExistsInCart = state.findIndex(pizzaFromTheCart => pizzaFromTheCart.slug === action.payload);
+        const pizzaExistsInCart = state.findIndex(
+          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload
+        );
 
         if (pizzaExistsInCart >= 0) {
           draft.splice(pizzaExistsInCart, 1);
         }
 
         break;
-      }
-      case ActionTypes.INITIALIZE_CART: {
-        return action.payload;
       }
       case ActionTypes.CLEAN_CART: {
         return [];
