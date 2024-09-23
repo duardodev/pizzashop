@@ -4,19 +4,22 @@ import { Divider } from '@/components/Divider';
 import { AboutUs } from '@/components/AboutUs';
 import { Menu } from '@/components/Menu';
 import { Footer } from '@/components/Footer';
+import { useFetchPizzas } from '@/hooks/useFetchPizzas';
 
 export const metadata: Metadata = {
   title: 'Home | PizzaShop',
 };
 
-export default function Home() {
+export default async function Home() {
+  const pizzasData = await useFetchPizzas();
+
   return (
     <>
       <Intro />
       <Divider gradientTo="left" />
       <AboutUs />
       <Divider gradientTo="right" />
-      <Menu />
+      <Menu pizzas={pizzasData} />
       <Footer />
     </>
   );
