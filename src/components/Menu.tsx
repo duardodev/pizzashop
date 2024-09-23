@@ -2,8 +2,7 @@
 
 import { Pizza } from '@/types/pizza';
 import { PizzaCard } from './PizzaCard';
-import { useState } from 'react';
-import { Input } from './Input';
+import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 
 interface MenuProps {
@@ -11,11 +10,17 @@ interface MenuProps {
 }
 
 export function Menu({ pizzas }: MenuProps) {
-  const [searchName, setSearchName] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredPizzas = pizzas.filter(pizza =>
-    pizza.title.toLowerCase().includes(searchName.toLowerCase())
-  );
+  const filteredPizzas = useMemo(() => {
+    return pizzas.filter(pizza => {
+      const searchLower = searchTerm.toLowerCase();
+      return (
+        pizza.title.toLowerCase().includes(searchLower) ||
+        pizza.description.toLowerCase().includes(searchLower)
+      );
+    });
+  }, [pizzas, searchTerm]);
 
   return (
     <section id="menu" className="max-w-[1120px] mx-auto px-5 py-28 scroll-mt-16">
@@ -25,11 +30,11 @@ export function Menu({ pizzas }: MenuProps) {
         <div className="mt-10 w-full max-w-md mb-8 relative">
           <input
             type="text"
-            placeholder="Filtrar pizzas pelo nome..."
+            placeholder="Filtrar pizzas por nome ou ingrediente..."
             aria-label="Filtrar pizzas"
             className="h-10 w-full p-4 pr-10 bg-transparent placeholder:text-gray-500 rounded-md border border-solid border-gray-300 leading-tight focus:outline-none focus:border-red"
-            value={searchName}
-            onChange={event => setSearchName(event.target.value)}
+            value={searchTerm}
+            onChange={event => setSearchTerm(event.target.value)}
           />
           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         </div>
