@@ -2,9 +2,15 @@
 
 # Sobre
 
-O PizzaShop é uma aplicação que simula uma loja virtual para uma pizzaria. Tem como funcionalidades: selecionar as opções disponíveis no cardápio, escolher determinada quantidade e tamanho, e solicitar o pedido preenchendo o formulário com o endereço de entrega e a forma de pagamento.
+O PizzaShop é uma aplicação que simula uma loja virtual para uma pizzaria. A aplicação conta com duas telas responsivas, sendo a primeira uma tela de apresentação e listagem das pizzas, que são obtidas por meio do <strong>Hygraph</strong>. Na segunda tela, encontra-se o formulário, cuja validação foi feita com o <strong>React Hook Form</strong> em conjunto com o <strong>Zod</strong>, e através da <strong>API ViaCep</strong>, três dos campos desse formulário são preenchidos automaticamente com base no CEP informado.
 
-A aplicação conta com duas telas responsivas, sendo a primeira uma tela de apresentação e listagem das pizzas, que são obtidas por meio do <strong>Hygraph</strong>. Na segunda tela, encontra-se o formulário, cuja validação foi feita com o <strong>React Hook Form</strong> em conjunto com o <strong>Zod</strong>, e através da <strong>API ViaCep</strong>, três dos campos desse formulário são preenchidos automaticamente com base no CEP informado.
+# Features
+
+- Utilização da Fetch API para buscar dados das pizzas catalogadas no Hygraph e renderizá-las dinamicamente;
+- Campo para filtragem das pizzas pelo nome ou ingrediente;
+- Gerenciamento de estado com Context API para o sistema de carrinho, incluindo alterações dinâmicas na quantidade e tamanho das pizzas, com atualização em tempo real do preço;
+- Validação de formulários com React Hook Form e Zod;
+- Preenchimento automático no formulário com base no CEP fornecido (consumindo a API ViaCEP);
 
 ## ⚙️ Tecnologias usadas:
 
