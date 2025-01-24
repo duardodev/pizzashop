@@ -2,14 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from './ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { SelectedPizzasList } from './SelectedPizzasList';
 import { PricingDetails } from './PricingDetails';
 import { useCart } from '@/hooks/useCart';
@@ -25,8 +18,8 @@ export function Cart() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className="h-9 w-9 bg-orange-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
-          <MdShoppingCart size={24} className="text-orange" />
+        <button className="h-9 w-9 bg-red-light p-2 rounded-lg hover:opacity-75 transition-opacity flex items-center justify-center relative">
+          <MdShoppingCart size={24} className="text-red" />
           <CartQuantity />
         </button>
       </SheetTrigger>
