@@ -4,13 +4,14 @@ import { HiOutlineTrash } from 'react-icons/hi';
 interface RemovePizzaButton {
   slug: string;
   title: string;
+  size: string;
 }
 
-export function RemovePizzaButton({ slug, title }: RemovePizzaButton) {
+export function RemovePizzaButton({ slug, title, size }: RemovePizzaButton) {
   const { removePizza } = useCart();
 
   function handleRemove() {
-    removePizza(slug);
+    removePizza(slug, size);
   }
 
   return (

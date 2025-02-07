@@ -11,30 +11,32 @@ export enum ActionTypes {
 
 type Action =
   | { type: ActionTypes.ADD_PIZZA; payload: PizzaFromTheCart }
-  | { type: ActionTypes.CHANGE_QUANTITY; payload: { slug: string; type: 'increase' | 'decrease' } }
+  | { type: ActionTypes.CHANGE_QUANTITY; payload: { slug: string; type: 'increase' | 'decrease'; size: string } }
   | { type: ActionTypes.CHANGE_SIZE; payload: { slug: string; size: string } }
-  | { type: ActionTypes.REMOVE_PIZZA; payload: string }
+  | { type: ActionTypes.REMOVE_PIZZA; payload: { slug: string; size: string } }
   | { type: ActionTypes.CLEAN_CART };
 
 export function cartReducer(state: PizzaFromTheCart[], action: Action) {
   return produce(state, draft => {
     switch (action.type) {
       case ActionTypes.ADD_PIZZA: {
-        const pizzaAlreadyExistsInCart = state.findIndex(
-          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+        const pizzaExistsInCart = state.findIndex(
+          pizzaFromTheCart =>
+            pizzaFromTheCart.slug === action.payload.slug && pizzaFromTheCart.size === action.payload.size
         );
 
-        if (pizzaAlreadyExistsInCart < 0) {
-          draft.push(action.payload);
+        if (pizzaExistsInCart >= 0) {
+          draft[pizzaExistsInCart].quantity += action.payload.quantity;
         } else {
-          draft[pizzaAlreadyExistsInCart].quantity += action.payload.quantity;
+          draft.push(action.payload);
         }
 
         break;
       }
       case ActionTypes.CHANGE_QUANTITY: {
         const pizzaExistsInCart = state.findIndex(
-          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+          pizzaFromTheCart =>
+            pizzaFromTheCart.slug === action.payload.slug && pizzaFromTheCart.size === action.payload.size
         );
 
         if (pizzaExistsInCart >= 0) {
@@ -48,7 +50,8 @@ export function cartReducer(state: PizzaFromTheCart[], action: Action) {
       }
       case ActionTypes.CHANGE_SIZE: {
         const pizzaExistsInCart = state.findIndex(
-          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload.slug
+          pizzaFromTheCart =>
+            pizzaFromTheCart.slug === action.payload.slug && pizzaFromTheCart.size === action.payload.size
         );
 
         if (pizzaExistsInCart >= 0) {
@@ -73,7 +76,8 @@ export function cartReducer(state: PizzaFromTheCart[], action: Action) {
       }
       case ActionTypes.REMOVE_PIZZA: {
         const pizzaExistsInCart = state.findIndex(
-          pizzaFromTheCart => pizzaFromTheCart.slug === action.payload
+          pizzaFromTheCart =>
+            pizzaFromTheCart.slug === action.payload.slug && pizzaFromTheCart.size === pizzaFromTheCart.size
         );
 
         if (pizzaExistsInCart >= 0) {

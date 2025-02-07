@@ -12,19 +12,15 @@ interface SelectedPizzaProps {
 }
 
 export function SelectedPizza({ pizza }: SelectedPizzaProps) {
-  const { changePizzaQuantity, changePizzaSize } = useCart();
+  const { changePizzaQuantity } = useCart();
   const formattedPrice = formatCurrency(pizza.price);
 
   function handleIncrease() {
-    changePizzaQuantity(pizza.slug, 'increase');
+    changePizzaQuantity(pizza.slug, 'increase', pizza.size);
   }
 
   function handleDecrease() {
-    changePizzaQuantity(pizza.slug, 'decrease');
-  }
-
-  function handleSizeChange(size: string) {
-    changePizzaSize(pizza.slug, size);
+    changePizzaQuantity(pizza.slug, 'decrease', pizza.size);
   }
 
   return (
@@ -35,11 +31,11 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
       <div className="w-full flex flex-col gap-3">
         <div className="w-full flex flex-wrap justify-between gap-2.5">
-          <h2 className="text-lg leading-none text-title">{pizza.title}</h2>
+          <h2 className="leading-none text-title">{`${pizza.title} (${pizza.size})`}</h2>
 
           <div className="flex items-center gap-2">
             <h2 className="font-semibold leading-none">R$ {formattedPrice}</h2>
-            <RemovePizzaButton slug={pizza.slug} title={pizza.title} />
+            <RemovePizzaButton slug={pizza.slug} size={pizza.size} title={pizza.title} />
           </div>
         </div>
 

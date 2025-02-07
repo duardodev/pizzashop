@@ -15,8 +15,8 @@ interface CartContextType {
   cartQuantity: number;
   totalOfPizzasInTheCart: number;
   addPizza: (pizza: PizzaFromTheCart) => void;
-  removePizza: (pizzaFromTheCartSlug: string) => void;
-  changePizzaQuantity: (pizzaFromTheCartSlug: string, type: 'increase' | 'decrease') => void;
+  removePizza: (pizzaFromTheCartSlug: string, size: string) => void;
+  changePizzaQuantity: (pizzaFromTheCartSlug: string, type: 'increase' | 'decrease', size: string) => void;
   changePizzaSize: (pizzaFromTheCartSlug: string, size: string) => void;
   cleanCart: () => void;
 }
@@ -46,12 +46,12 @@ export function CartProvider({ children }: CartProviderProps) {
     dispatch({ type: ActionTypes.ADD_PIZZA, payload: pizza });
   }
 
-  function changePizzaQuantity(slug: string, type: 'increase' | 'decrease') {
-    dispatch({ type: ActionTypes.CHANGE_QUANTITY, payload: { slug, type } });
+  function changePizzaQuantity(slug: string, type: 'increase' | 'decrease', size: string) {
+    dispatch({ type: ActionTypes.CHANGE_QUANTITY, payload: { slug, type, size } });
   }
 
-  function removePizza(slug: string) {
-    dispatch({ type: ActionTypes.REMOVE_PIZZA, payload: slug });
+  function removePizza(slug: string, size: string) {
+    dispatch({ type: ActionTypes.REMOVE_PIZZA, payload: { slug, size } });
   }
 
   function changePizzaSize(slug: string, size: string) {
