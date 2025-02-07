@@ -41,10 +41,9 @@ export function SelectedPizza({ pizza }: SelectedPizzaProps) {
 
         <PizzaControls
           quantity={pizza.quantity}
-          size={pizza.size}
+          withSizePicker={false}
           onIncrease={handleIncrease}
           onDecrease={handleDecrease}
-          onSizeChange={handleSizeChange}
         />
       </div>
     </div>

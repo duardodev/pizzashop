@@ -1,12 +1,6 @@
 import { ComponentProps } from 'react';
 import { MdOutlineAdd, MdOutlineRemove } from 'react-icons/md';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  PopoverClose,
-  PopoverArrow,
-} from '@/components/ui/popover';
+import { Popover, PopoverContent, PopoverTrigger, PopoverClose, PopoverArrow } from '@/components/ui/popover';
 import { RadioGroup } from '@/components/ui/radio-group';
 import { CgSize } from 'react-icons/cg';
 import { RxCross1 } from 'react-icons/rx';
@@ -14,15 +8,17 @@ import { PizzaSizeList } from './PizzaSizeList';
 
 interface PizzaControlsProps extends ComponentProps<'div'> {
   quantity: number;
-  size: string;
+  size?: string;
+  withSizePicker: boolean;
   onIncrease: () => void;
   onDecrease: () => void;
-  onSizeChange: (size: string) => void;
+  onSizeChange?: (size: string) => void;
 }
 
 export function PizzaControls({
   quantity,
   size,
+  withSizePicker,
   onIncrease,
   onDecrease,
   onSizeChange,
@@ -47,38 +43,36 @@ export function PizzaControls({
         </button>
       </div>
 
-      <Popover>
-        <PopoverTrigger asChild>
-          <button
-            aria-label="Selecionar tamanho"
-            className="bg-orange p-2 rounded-md flex justify-center items-center"
-          >
-            <CgSize size={20} className="text-white" />
-          </button>
-        </PopoverTrigger>
-
-        <PopoverContent>
-          <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold">Tamanho da pizza</h1>
-
-            <PopoverClose className="rounded-full focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
-              <RxCross1 className="h-4 w-4 text-title hover:text-orange" />
-            </PopoverClose>
-          </div>
-
-          <form>
-            <RadioGroup
-              aria-label="Tamanho da pizza"
-              defaultValue={size}
-              onValueChange={onSizeChange}
+      {withSizePicker && (
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              aria-label="Selecionar tamanho"
+              className="bg-orange p-2 rounded-md flex justify-center items-center"
             >
-              <PizzaSizeList />
-            </RadioGroup>
-          </form>
+              <CgSize size={20} className="text-white" />
+            </button>
+          </PopoverTrigger>
 
-          <PopoverArrow className="fill-orange mb-1" />
-        </PopoverContent>
-      </Popover>
+          <PopoverContent>
+            <div className="flex items-center justify-between">
+              <h1 className="text-lg font-semibold">Tamanho da pizza</h1>
+
+              <PopoverClose className="rounded-full focus:outline-none focus-visible:ring focus-visible:ring-orange focus-visible:ring-opacity-75">
+                <RxCross1 className="h-4 w-4 text-title hover:text-orange" />
+              </PopoverClose>
+            </div>
+
+            <form>
+              <RadioGroup aria-label="Tamanho da pizza" defaultValue={size} onValueChange={onSizeChange}>
+                <PizzaSizeList />
+              </RadioGroup>
+            </form>
+
+            <PopoverArrow className="fill-orange mb-1" />
+          </PopoverContent>
+        </Popover>
+      )}
     </div>
   );
 }

@@ -12,15 +12,9 @@ interface PizzaCardProps {
 }
 
 export function PizzaCard({ pizza }: PizzaCardProps) {
-  const {
-    quantity,
-    formattedPrice,
-    size,
-    price,
-    handleDecrease,
-    handleIncrease,
-    handleSizeChange,
-  } = usePizzaCard({ pizza });
+  const { quantity, formattedPrice, size, price, handleDecrease, handleIncrease, handleSizeChange } = usePizzaCard({
+    pizza,
+  });
 
   return (
     <div className="w-[250px] min-[310px]:w-[280px] flex flex-col items-center gap-3">
@@ -38,14 +32,10 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
       </div>
 
       <div className="w-full flex flex-col gap-3">
-        <h1 className="text-title text-center text-xl font-extrabold leading-tight">
-          {pizza.title}
-        </h1>
+        <h1 className="text-title text-center text-xl font-extrabold leading-tight">{pizza.title}</h1>
         <p className="w-64 text-label text-center leading-tight">{pizza.description}</p>
 
-        <div
-          className={cn('flex justify-between items-center', pizza.title === 'Muçarela' && 'mt-5')}
-        >
+        <div className={cn('flex justify-between items-center', pizza.title === 'Muçarela' && 'mt-5')}>
           <p className="text-text text-xl font-extrabold leading-tight">
             <span className="text-sm font-normal">R$ {''}</span>
             {formattedPrice}
@@ -54,6 +44,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
           <PizzaControls
             quantity={quantity}
             size={size}
+            withSizePicker={true}
             onIncrease={handleIncrease}
             onDecrease={handleDecrease}
             onSizeChange={handleSizeChange}
